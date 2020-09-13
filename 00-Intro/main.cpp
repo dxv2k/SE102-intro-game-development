@@ -30,7 +30,7 @@ WARNING: This one file example has a hell LOT of *sinful* programming practices
 #include <time.h>
 #include <stdlib.h>
 
-#define WINDOW_CLASS_NAME L"SampleWindow"
+#define WINDOW_CLASS_NAME L"SampleWindow" // L prefix means wchar_t, long value, wide char
 #define WINDOW_TITLE L"00 - Intro"
 #define WINDOW_ICON_PATH L"brick.ico" 
 
@@ -39,11 +39,12 @@ HWND hWnd = 0;
 #define D3DCOLOR_WHITE D3DCOLOR_XRGB(255, 255, 255)
 
 #define BACKGROUND_COLOR D3DCOLOR_XRGB(0, 0, 0)
-#define WINDOW_WIDTH 640
-#define WINDOW_HEIGHT 480
+#define WINDOW_WIDTH 640 // ScreenWidth
+#define WINDOW_HEIGHT 480 // ScreenHeight
 
 #define MAX_FRAME_RATE 120
 
+// Declare variable to hold Direct3D interface 
 LPDIRECT3D9 d3d = NULL;						// Direct3D handle
 LPDIRECT3DDEVICE9 d3ddv = NULL;				// Direct3D device object
 
@@ -58,16 +59,19 @@ LPD3DXSPRITE spriteHandler = NULL;			// Sprite helper library to help us draw 2D
 #define BRICK_START_X 30.0f
 #define BRICK_START_Y 10.0f
 #define BRICK_START_VX 0.2f
+#define BRICK_START_VY 0.2f
 #define BRICK_WIDTH 16.0f
-
+#define BRICK_HEIGHT 8.0f // Addtional variable for testing boucing brick purpose
 
 LPDIRECT3DTEXTURE9 texBrick;				// Texture object to store brick image
 
 float brick_x = BRICK_START_X;
 float brick_vx = BRICK_START_VX;
+float brick_vy = BRICK_START_VY;
 float brick_y = BRICK_START_Y;
 
-
+// An application-defined function that processes messages sent to a window. 
+// WinProc is a placeolder for the application-defined function name
 LRESULT CALLBACK WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	switch (message) {
@@ -107,22 +111,23 @@ void DebugOutTitle(wchar_t *fmt, ...)
 }
 //////////////////////////////////////////
 
+// Create directX environment
 void InitDirectX(HWND hWnd)
 {
-	d3d = Direct3DCreate9(D3D_SDK_VERSION);
+	d3d = Direct3DCreate9(D3D_SDK_VERSION); // create Direct3D object 
 
-	D3DPRESENT_PARAMETERS d3dpp;
+	D3DPRESENT_PARAMETERS d3dpp; // parameter settings for d3d device 
 
 	ZeroMemory(&d3dpp, sizeof(d3dpp));
 
-	d3dpp.Windowed = TRUE;
+	d3dpp.Windowed = TRUE; // Show in windows mode, FALSE for fullscreen 
 	d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;
 	d3dpp.BackBufferFormat = D3DFMT_X8R8G8B8;
 	d3dpp.BackBufferCount = 1;
 
 	// retrieve window width & height so that we can create backbuffer height & width accordingly 
-	RECT r;
-	GetClientRect(hWnd, &r);
+	RECT r; // Data structure defines a rectangel by the coordinate of its uppeft-left and lower-rigt corners
+	GetClientRect(hWnd, &r);  
 
 	BackBufferWidth = r.right + 1;
 	BackBufferHeight = r.bottom + 1;
@@ -191,14 +196,28 @@ void LoadResources()
 void Update(DWORD dt)
 {
 	//Uncomment the whole function to see the brick moves and bounces back when hitting left and right edges
-	
-	//brick_x += brick_vx*dt; 
+	brick_x += brick_vx * dt;
+	brick_y += brick_vy * dt;
 
+	if ((brick_x <= 0 || brick_x >= BackBufferWidth - BRICK_WIDTH)
+		&& (brick_y <= 0 || brick_y >= BackBufferHeight - BRICK_WIDTH)){
+		brick_vx = -brick_vx; 
+		brick_vy = -brick_vy; 
+		if (brick_x <= 0) {
+			brick_x = 0; 
+		}
+		else if (brick_x >= BackBufferWidth - BRICK_WIDTH) {
+			brick_x = BackBufferWidth - BRICK_WIDTH; 
+		}
+	}
+
+	//brick_x += brick_vx * dt;
 	//if (brick_x <= 0 || brick_x >= BackBufferWidth - BRICK_WIDTH) { 
 	//	
 	//	brick_vx = -brick_vx;
-
-	//	//Why not having these logics would make the brick disappear sometimes?  
+	//	
+	//	//why not having these logics would make the brick disappear sometimes?  
+	//	//because    
 	//	if (brick_x <= 0)
 	//	{
 	//		brick_x = 0;
@@ -208,6 +227,7 @@ void Update(DWORD dt)
 	//		brick_x = BackBufferWidth - BRICK_WIDTH;
 	//	}
 	//} 
+
 }
 
 /*
@@ -221,9 +241,7 @@ void Render()
 		// Clear the whole window with a color
 		d3ddv->ColorFill(backBuffer, NULL, BACKGROUND_COLOR);
 
-		spriteHandler->Begin(D3DXSPRITE_ALPHABLEND);
-
-		D3DXVECTOR3 p(brick_x, brick_y, 0);
+		spriteHandler->Begin(D3DXSPRITE_ALPHABLEND); D3DXVECTOR3 p(brick_x, brick_y, 0);
 		spriteHandler->Draw(texBrick, NULL, NULL, &p, D3DCOLOR_WHITE);
 
 		DebugOutTitle(L"%s (%0.1f,%0.1f) v:%0.1f", WINDOW_TITLE, brick_x, brick_y, brick_vx);
@@ -238,7 +256,7 @@ void Render()
 
 HWND CreateGameWindow(HINSTANCE hInstance, int nCmdShow, int ScreenWidth, int ScreenHeight)
 {
-	WNDCLASSEX wc;
+	WNDCLASSEX wc; // structure contains windows class information
 	wc.cbSize = sizeof(WNDCLASSEX);
 
 	wc.style = CS_HREDRAW | CS_VREDRAW;
@@ -250,7 +268,7 @@ HWND CreateGameWindow(HINSTANCE hInstance, int nCmdShow, int ScreenWidth, int Sc
 	wc.lpfnWndProc = (WNDPROC)WinProc;
 	wc.cbClsExtra = 0;
 	wc.cbWndExtra = 0;
-	wc.hIcon = (HICON)LoadImage(hInstance, WINDOW_ICON_PATH, IMAGE_ICON, 0,0, LR_LOADFROMFILE);;
+	wc.hIcon = (HICON)LoadImage(hInstance, WINDOW_ICON_PATH, IMAGE_ICON, 0,0, LR_LOADFROMFILE);
 	wc.hCursor = LoadCursor(NULL, IDC_ARROW);
 	wc.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
 	wc.lpszMenuName = NULL;
@@ -263,9 +281,9 @@ HWND CreateGameWindow(HINSTANCE hInstance, int nCmdShow, int ScreenWidth, int Sc
 		CreateWindow(
 			WINDOW_CLASS_NAME,
 			WINDOW_TITLE,
-			WS_OVERLAPPEDWINDOW, // WS_EX_TOPMOST | WS_VISIBLE | WS_POPUP,
-			CW_USEDEFAULT,
-			CW_USEDEFAULT,
+			WS_OVERLAPPEDWINDOW, // WS_EX_TOPMOST | WS_VISIBLE | WS_POPUP, // Windows style 
+			CW_USEDEFAULT, // x coordinate
+			CW_USEDEFAULT, // y coordinate
 			ScreenWidth,
 			ScreenHeight,
 			NULL,
@@ -297,8 +315,11 @@ int Run()
 	{
 		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
 		{
+			// Check if receive quit message
+			// WM_QUIT is the ONLY way to quit the program
 			if (msg.message == WM_QUIT) done = 1;
-
+			
+			// Decode and transfer message to WinProc() 
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
 		}
@@ -322,12 +343,13 @@ int Run()
 	return 1;
 }
 
+// This function served as closing the game, releasee d3d and d3ddev object
 void Cleanup()
 {
 	texBrick->Release();
 	spriteHandler->Release();
 	backBuffer->Release();
-	d3ddv->Release();
+	d3ddv->Release(); 
 	d3d->Release();
 
 	DebugOut(L"[INFO] Cleanup Ok\n");
