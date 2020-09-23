@@ -14,6 +14,7 @@
 #include <windows.h>
 #include <d3d9.h>
 #include <d3dx9.h>
+#include <iostream> 
 #include <vector>
 
 #include "debug.h"
@@ -43,11 +44,14 @@ CGameObject *brick;
 #define BRICK_X 10.0f
 #define BRICK_Y 100.0f
 
+#define BRICK_WIDTH 16.0f // testing purpose to create brick walls
+#define FLOOR_BRICK_START_X 10.0f // testing purpose to create brick walls
+#define FLOOR_BRICK_START_Y 158.0f // testing purpose to create brick walls
+
 LPDIRECT3DTEXTURE9 texMario = NULL;
 LPDIRECT3DTEXTURE9 texBrick = NULL;
 
 //vector<LPGAMEOBJECT> objects;  
-
 LRESULT CALLBACK WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	switch (message) {
@@ -64,6 +68,10 @@ LRESULT CALLBACK WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 /*
 	Load all game resources. In this example, create a brick object and mario object
 */
+
+vector<LPGAMEOBJECT> brickFloor; 
+int brickFloor_length = (int)SCREEN_WIDTH / BRICK_WIDTH; 
+
 void LoadResources()
 {
 	CGame * game = CGame::GetInstance();
@@ -72,6 +80,15 @@ void LoadResources()
 
 	mario = new CMario(MARIO_START_X, MARIO_START_Y, MARIO_START_VX, texMario);
 	brick = new CGameObject(BRICK_X, BRICK_Y, texBrick);
+
+	// Testing brick floor
+	float currBrickCoordinate; 
+	CGameObject* tempBrick; 
+	for (int idx = 0; idx < brickFloor_length; idx++) {
+		currBrickCoordinate = FLOOR_BRICK_START_X + idx * BRICK_WIDTH;
+		tempBrick = new CGameObject(currBrickCoordinate, FLOOR_BRICK_START_Y, texBrick);
+		brickFloor.push_back(tempBrick); 
+	}
 }
 
 /*
@@ -84,13 +101,18 @@ void Update(DWORD dt)
 	for (int i=0;i<n;i++)
 		objects[i]->Update(dt);
 	*/
-
 	mario->Update(dt);
 	brick->Update(dt);
 
+	// NOT SURE ABOUT THIS
+	// Render brick floor
+	/*for (int idx = 0; idx < brickFloor_length; idx++) {
+		brickFloor[idx]->Update(dt); 
+	}*/
+
+
 	DebugOutTitle(L"01 - Skeleton %0.1f, %0.1f", mario->GetX(), mario->GetY());
 }
-
 /*
 	Render a frame 
 */
@@ -111,6 +133,9 @@ void Render()
 
 		mario->Render();
 		brick->Render();
+		for (int idx = 0; idx < brickFloor_length; idx++) {
+			brickFloor[idx]->Render(); 
+		}
 
 
 		spriteHandler->End();
