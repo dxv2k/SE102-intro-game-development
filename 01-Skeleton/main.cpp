@@ -106,9 +106,9 @@ void Update(DWORD dt)
 
 	// NOT SURE ABOUT THIS
 	// Render brick floor
-	/*for (int idx = 0; idx < brickFloor_length; idx++) {
+	for (int idx = 0; idx < brickFloor_length; idx++) {
 		brickFloor[idx]->Update(dt); 
-	}*/
+	}
 
 
 	DebugOutTitle(L"01 - Skeleton %0.1f, %0.1f", mario->GetX(), mario->GetY());
