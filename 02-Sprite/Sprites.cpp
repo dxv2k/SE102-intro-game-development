@@ -28,6 +28,8 @@ void CSprite::Draw(float x, float y)
 
 void CSprites::Add(int id, int left, int top, int right, int bottom, LPDIRECT3DTEXTURE9 tex)
 {
+	// left, top -> (x,y) upper left 
+	// right, bottom -> (x,y) bottom/lower right 
 	LPSPRITE s = new CSprite(id, left, top, right, bottom, tex);
 	sprites[id] = s;
 }
