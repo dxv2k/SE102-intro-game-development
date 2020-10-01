@@ -41,8 +41,8 @@ CMario *mario;
 
 // For testing brick animation
 CBrick *brick; 
-#define BRICK_START_X 0.0f
-#define BRICK_START_Y 0.0f
+#define BRICK_START_X 10.0f
+#define BRICK_START_Y 10.0f
 #define BRICK_WIDTH 16.0f
 
 
@@ -69,16 +69,15 @@ void LoadResources()
 
 	textures->Add(ID_TEX_MARIO, L"textures\\mario.png",D3DCOLOR_XRGB(176, 224, 248));
 	//textures->Add(ID_ENEMY_TEXTURE, L"textures\\enemies.png", D3DCOLOR_XRGB(156, 219, 239));
-	textures->Add(ID_TEX_ENEMY, L"textures\\enemies.png", D3DCOLOR_XRGB(156, 219, 239)); // for testing purpose
-	//textures->Add(ID_TEX_MISC, L"textures\\misc.png", D3DCOLOR_XRGB(156, 219, 239));
-
+	//textures->Add(ID_TEX_ENEMY, L"textures\\enemies.png", D3DCOLOR_XRGB(156, 219, 239)); 
+	textures->Add(ID_TEX_MISC, L"textures\\misc.png", D3DCOLOR_XRGB(156, 219, 239)); // brick animation 
 
 	CSprites * sprites = CSprites::GetInstance();
 	
 	LPDIRECT3DTEXTURE9 texMario = textures->Get(ID_TEX_MARIO);
 
 	// readline => id, left, top, right 
-
+	// Mario animation
 	sprites->Add(10001, 246, 154, 259, 181, texMario);
 	sprites->Add(10002, 275, 154, 290, 181, texMario);
 	sprites->Add(10003, 304, 154, 321, 181, texMario);
@@ -87,7 +86,7 @@ void LoadResources()
 	sprites->Add(10012, 155, 154, 170, 181, texMario);
 	sprites->Add(10013, 125, 154, 140, 181, texMario);
 
-	// Add textures for brick animation
+	// Add sprite for brick animation
 	LPDIRECT3DTEXTURE9 texMisc = textures->Get(ID_TEX_MISC);
 	sprites->Add(20001, 300, 117, 315, 132, texMisc);
 	sprites->Add(20002, 318, 117, 333, 132, texMisc);
@@ -97,7 +96,7 @@ void LoadResources()
 
 	CAnimations * animations = CAnimations::GetInstance();
 	LPANIMATION ani;
-
+	
 	ani = new CAnimation(100);
 	ani->Add(10001);
 	ani->Add(10002);
@@ -130,7 +129,7 @@ void LoadResources()
 void Update(DWORD dt)
 {
 	mario->Update(dt);
-	//brick->Update(dt); 
+	brick->Update(dt); 
 }
 
 /*
@@ -151,6 +150,7 @@ void Render()
 		spriteHandler->Begin(D3DXSPRITE_ALPHABLEND);
 
 		mario->Render();
+		brick->Render(); 
 
 		DebugOutTitle(L"01 - Sprite %0.1f %0.1f", mario->GetX(), mario->GetY());
 

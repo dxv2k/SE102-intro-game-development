@@ -49,6 +49,7 @@ void CBrick::Update(DWORD dt) {
 void CBrick::Render() {
 	LPANIMATION ani; 
 	ani = CAnimations::GetInstance()->Get(510); 
+	ani->Render(x, y); 
 }
 
 
