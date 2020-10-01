@@ -39,6 +39,13 @@ CMario *mario;
 #define MARIO_START_Y 130.0f
 #define MARIO_START_VX 0.1f
 
+// For testing brick animation
+CBrick *brick; 
+#define BRICK_START_X 0.0f
+#define BRICK_START_Y 0.0f
+#define BRICK_WIDTH 16.0f
+
+
 LRESULT CALLBACK WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	switch (message) {
@@ -80,11 +87,12 @@ void LoadResources()
 	sprites->Add(10012, 155, 154, 170, 181, texMario);
 	sprites->Add(10013, 125, 154, 140, 181, texMario);
 
-	/*LPDIRECT3DTEXTURE9 texMisc = textures->Get(ID_TEX_MISC);
+	// Add textures for brick animation
+	LPDIRECT3DTEXTURE9 texMisc = textures->Get(ID_TEX_MISC);
 	sprites->Add(20001, 300, 117, 315, 132, texMisc);
 	sprites->Add(20002, 318, 117, 333, 132, texMisc);
 	sprites->Add(20003, 336, 117, 351, 132, texMisc);
-	sprites->Add(20004, 354, 117, 369, 132, texMisc);*/
+	sprites->Add(20004, 354, 117, 369, 132, texMisc);
 	
 
 	CAnimations * animations = CAnimations::GetInstance();
@@ -102,16 +110,17 @@ void LoadResources()
 	ani->Add(10013);
 	animations->Add(501, ani);
 
-	/*
+	// Add brick animation	
 	ani = new CAnimation(100);
 	ani->Add(20001,1000);
 	ani->Add(20002);
 	ani->Add(20003);
 	ani->Add(20004);
 	animations->Add(510, ani);
-	*/
+
 	
 	mario = new CMario(MARIO_START_X, MARIO_START_Y, MARIO_START_VX);
+	brick = new CBrick(BRICK_START_X, BRICK_START_Y); 
 }
 
 /*
@@ -121,6 +130,7 @@ void LoadResources()
 void Update(DWORD dt)
 {
 	mario->Update(dt);
+	//brick->Update(dt); 
 }
 
 /*
