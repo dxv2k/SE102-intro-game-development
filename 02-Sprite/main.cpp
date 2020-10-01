@@ -111,7 +111,7 @@ void LoadResources()
 
 	// Add brick animation	
 	ani = new CAnimation(100);
-	ani->Add(20001,1000);
+	ani->Add(20001,1000); // With second parameter, add time frame here
 	ani->Add(20002);
 	ani->Add(20003);
 	ani->Add(20004);
