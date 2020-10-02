@@ -32,6 +32,15 @@ public:
 	static Game * GetInstance();
 
 	~Game();
+
+
+
+
+
+
+
+
+
 };
 
 
