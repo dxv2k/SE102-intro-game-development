@@ -3,6 +3,7 @@
 #include <d3dx9.h>
 
 #include <Game.h> 
+#include <Debug.h>
 
 #include <signal.h>
 #include <string.h>
