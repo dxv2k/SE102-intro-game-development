@@ -12,5 +12,7 @@
 #define __W(x)  L##x
 
 void DebugOut(wchar_t* fmt, ...);
+void DebugOutTitle(wchar_t* fmt, ...); 
+void SetDebugWindow(HWND hWnd); 
 
 
