@@ -22,8 +22,8 @@
 
 
 #define WINDOW_WIDTH 640 
-#define wiNDOW_HEIGHT 480
-
+#define WINDOW_HEIGHT 480
+#define MAX_FRAME_RATE 120
 
 HWND hWnd = 0; 
 
@@ -41,32 +41,32 @@ LRESULT CALLBACK WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	return 0;
 }
 
-//void Update(DWORD dt) {
-//	Game::GetInstance()->Update(dt); 
-//}
+void Update(DWORD dt) {
+	//Game::GetInstance()->Update(dt); 
+}
 
-//void Render() {
-//
-//	LPDIRECT3DDEVICE9 d3ddv = game->GetDirect3DDevice();
-//	LPDIRECT3DSURFACE9 bb = game->GetBackBuffer();
-//	LPD3DXSPRITE spriteHandler = game->GetSpriteHandler();
-//
-//	if (d3ddv->BeginScene())
-//	{
-//		// Clear back buffer with a color
-//		d3ddv->ColorFill(bb, NULL, BACKGROUND_COLOR);
-//
-//		spriteHandler->Begin(D3DXSPRITE_ALPHABLEND);
-//
-//		Game::GetInstance()->Render();
-//
-//		spriteHandler->End();
-//		d3ddv->EndScene();
-//	}
-//
-//	// Display back buffer content to the screen
-//	d3ddv->Present(NULL, NULL, NULL, NULL);
-//}
+void Render() {
+
+	LPDIRECT3DDEVICE9 d3ddv = game->GetDirect3DDevice();
+	LPDIRECT3DSURFACE9 bb = game->GetBackBuffer();
+	LPD3DXSPRITE spriteHandler = game->GetSpriteHandler();
+
+	//if (d3ddv->BeginScene())
+	//{
+	//	// Clear back buffer with a color
+	//	d3ddv->ColorFill(bb, NULL, BACKGROUND_COLOR);
+
+	//	spriteHandler->Begin(D3DXSPRITE_ALPHABLEND);
+
+	//	Game::GetInstance()->Render();
+
+	//	spriteHandler->End();
+	//	d3ddv->EndScene();
+	//}
+
+	//// Display back buffer content to the screen
+	//d3ddv->Present(NULL, NULL, NULL, NULL);
+}
 
 HWND CreateGameWindow(HINSTANCE hInstance, int nCmdShow, int ScreenWidth, int ScreenHeight) {
 	WNDCLASSEX wc;
@@ -113,18 +113,38 @@ HWND CreateGameWindow(HINSTANCE hInstance, int nCmdShow, int ScreenWidth, int Sc
 	UpdateWindow(hWnd);
 
 	//SetDebugWindow(hWnd);
-
 	return hWnd;
-
-
 }
 
-void Run() {
-
+int Run() {
+	MSG msg; 
+	int done = 0; 
+	DWORD frameStart = GetTickCount(); 
+	DWORD tickPerFrame = 1000 / MAX_FRAME_RATE; 
+	while (!done) {
+		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
+			if (msg.message == WM_QUIT) {
+				done = 1; 
+			}
+		}
+		DWORD now = GetTickCount(); 
+		// dt: the time between (beginning of last frame) and now
+		// this frame: the frame we are about to render
+		DWORD dt = now - frameStart; 
+		if (dt >= tickPerFrame) {
+			frameStart = now;
+			Update(dt);
+			Render();
+		}
+		else
+			Sleep(tickPerFrame - dt); 
+	}
+	return 1;
 }
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
-
+	HWND hWnd = CreateGameWindow(hInstance, nCmdShow, WINDOW_WIDTH, WINDOW_HEIGHT); 
+	return 0; 
 }
 
 void LoadResources() {
