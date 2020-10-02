@@ -2,15 +2,15 @@
 #include <d3d9.h>
 #include <d3dx9.h>
 
-#include <Game.h> 
-#include <Debug.h>
-
 #include <signal.h>
 #include <string.h>
 #include <stdio.h>
 #include <stdarg.h>
 #include <time.h>
 #include <stdlib.h>
+
+#include <Game.h> 
+//#include <Debug.h>
 
 #define WINDOW_CLASS_NAME L"Super Mario Bros 3" 
 #define WINDOW_TITLE L"Super Mario Bros 3" 
@@ -20,10 +20,19 @@
 #define D3DCOLOR_WHITE D3DCOLOR_XRGB(255, 255, 255)
 #define BACKGROUND_COLOR D3DCOLOR_XRGB(0,0,0) 
 
-
 #define WINDOW_WIDTH 640 
 #define WINDOW_HEIGHT 480
 #define MAX_FRAME_RATE 120
+
+
+LPDIRECT3D9 d3d = NULL; 
+LPDIRECT3DDEVICE9 d3ddev = NULL; 
+LPDIRECT3DSURFACE9 backBuffer = NULL;
+
+int BackBufferWidth = 0;
+int BackBufferHeight = 0;
+
+LPD3DXSPRITE spriteHandler = NULL;			// Sprite helper library to help us draw 2D images 
 
 HWND hWnd = 0; 
 
