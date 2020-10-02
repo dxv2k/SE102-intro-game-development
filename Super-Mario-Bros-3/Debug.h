@@ -1,32 +1,16 @@
 #pragma once
 
-#include <Windows.h>
-
 #include <signal.h>
 #include <string.h>
 #include <stdio.h>
 #include <stdarg.h>
 #include <time.h>
 #include <stdlib.h>
-#include <vector>
 
+// DEBUG SUPPORT FUNCTIONS //////////////
+#define _W(x)  __W(x)
+#define __W(x)  L##x
 
-using namespace std;
-
-void DebugOut(wchar_t *fmt, ...);
-
-vector<string> split(string line, string delimeter = "\t");
-wstring ToWSTR(string st);
-
-LPCWSTR ToLPCWSTR(string st);
-
-
-
-
-
-
-
-
-
+void DebugOut(wchar_t* fmt, ...);
 
 
