@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2005
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01-Skeleton", "01-Skeleton\01-Skeleton.vcxproj", "{959C78E1-3BC0-4E30-BB42-048A1F251A85}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "00-Intro", "00-Intro\00-Intro.vcxproj", "{6849F7B7-30B7-4886-93C4-BE428757A111}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "05-ScenceManager", "05-ScenceManager\05-ScenceManager.vcxproj", "{C83A385D-5992-4E1B-B783-AB1D446414D5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Super-Mario-Bros-3", "Super-Mario-Bros-3\Super-Mario-Bros-3.vcxproj", "{F45A2638-EF50-4DC7-8916-9FD2ABD8E586}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,6 +113,20 @@ Global
 		{C83A385D-5992-4E1B-B783-AB1D446414D5}.Release|Win32.Build.0 = Release|Win32
 		{C83A385D-5992-4E1B-B783-AB1D446414D5}.Release|x64.ActiveCfg = Release|x64
 		{C83A385D-5992-4E1B-B783-AB1D446414D5}.Release|x64.Build.0 = Release|x64
+		{F45A2638-EF50-4DC7-8916-9FD2ABD8E586}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{F45A2638-EF50-4DC7-8916-9FD2ABD8E586}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{F45A2638-EF50-4DC7-8916-9FD2ABD8E586}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{F45A2638-EF50-4DC7-8916-9FD2ABD8E586}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F45A2638-EF50-4DC7-8916-9FD2ABD8E586}.Debug|Win32.Build.0 = Debug|Win32
+		{F45A2638-EF50-4DC7-8916-9FD2ABD8E586}.Debug|x64.ActiveCfg = Debug|x64
+		{F45A2638-EF50-4DC7-8916-9FD2ABD8E586}.Debug|x64.Build.0 = Debug|x64
+		{F45A2638-EF50-4DC7-8916-9FD2ABD8E586}.Release|Any CPU.ActiveCfg = Release|Win32
+		{F45A2638-EF50-4DC7-8916-9FD2ABD8E586}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{F45A2638-EF50-4DC7-8916-9FD2ABD8E586}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{F45A2638-EF50-4DC7-8916-9FD2ABD8E586}.Release|Win32.ActiveCfg = Release|Win32
+		{F45A2638-EF50-4DC7-8916-9FD2ABD8E586}.Release|Win32.Build.0 = Release|Win32
+		{F45A2638-EF50-4DC7-8916-9FD2ABD8E586}.Release|x64.ActiveCfg = Release|x64
+		{F45A2638-EF50-4DC7-8916-9FD2ABD8E586}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
