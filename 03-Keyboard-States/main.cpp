@@ -67,6 +67,12 @@ void CSampleKeyHander::KeyState(BYTE *states)
 		mario->SetState(MARIO_STATE_WALKING_RIGHT);
 	else if (game->IsKeyDown(DIK_LEFT))
 		mario->SetState(MARIO_STATE_WALKING_LEFT);
+	
+	// Idea: press SHIFT (or additional key) -> mario from WALKING TO RUNNING
+	// error from this
+	else if (game->IsKeyDown(DIKEYBOARD_LSHIFT))
+		mario->SetState(MARIO_STATE_RUNNING_LEFT); 
+
 	else mario->SetState(MARIO_STATE_IDLE);
 }
 
