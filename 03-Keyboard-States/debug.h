@@ -10,7 +10,6 @@
 #define _W(x)  __W(x)
 #define __W(x)  L##x
 
-
 #define VA_PRINTS(s) {				\
 		va_list argp;				\
 		va_start(argp, fmt);		\
