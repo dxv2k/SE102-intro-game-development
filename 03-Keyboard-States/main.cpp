@@ -21,7 +21,7 @@
 #include "Mario.h"
 
 #define WINDOW_CLASS_NAME L"SampleWindow"
-#define MAIN_WINDOW_TITLE L"02 - Sprite animation"
+#define MAIN_WINDOW_TITLE L"03 - Keyboard States"
 
 #define BACKGROUND_COLOR D3DCOLOR_XRGB(200, 200, 255)
 #define SCREEN_WIDTH 320
@@ -59,6 +59,9 @@ void CSampleKeyHander::OnKeyDown(int KeyCode)
 void CSampleKeyHander::OnKeyUp(int KeyCode)
 {
 	DebugOut(L"[INFO] KeyUp: %d\n", KeyCode);
+	//DebugOutTitle(L"", MAIN_WINDOW_TITLE, KeyCode); 
+	DebugOutTitle(L"", KeyCode); 
+
 }
 
 void CSampleKeyHander::KeyState(BYTE *states)
@@ -70,8 +73,8 @@ void CSampleKeyHander::KeyState(BYTE *states)
 	
 	// Idea: press SHIFT (or additional key) -> mario from WALKING TO RUNNING
 	// error in line below 
-	/*else if (game->IsKeyDown(DIKEYBOARD_LSHIFT))
-		mario->SetState(MARIO_STATE_RUNNING_LEFT); */
+	//else if (game->iskeydown(dikeyboard_lshift))
+	//	mario->setstate(mario_state_running_left); 
 
 	/*
 		For some reasons, seem like can not use system key like LEFT SHIFT
