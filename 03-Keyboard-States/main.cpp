@@ -69,10 +69,19 @@ void CSampleKeyHander::KeyState(BYTE *states)
 		mario->SetState(MARIO_STATE_WALKING_LEFT);
 	
 	// Idea: press SHIFT (or additional key) -> mario from WALKING TO RUNNING
-	// error from this
-	else if (game->IsKeyDown(DIKEYBOARD_LSHIFT))
-		mario->SetState(MARIO_STATE_RUNNING_LEFT); 
+	// error in line below 
+	/*else if (game->IsKeyDown(DIKEYBOARD_LSHIFT))
+		mario->SetState(MARIO_STATE_RUNNING_LEFT); */
 
+	/*
+		For some reasons, seem like can not use system key like LEFT SHIFT
+		But when I tried with A,B,C,.. it seems like working perfectly 
+		Need further work on this 
+	*/
+	else if (game->IsKeyDown(DIK_A))
+		mario->SetState(MARIO_STATE_RUNNING_LEFT); 
+	else if (game->IsKeyDown(DIK_B))
+		mario->SetState(MARIO_STATE_RUNNING_RIGHT); 
 	else mario->SetState(MARIO_STATE_IDLE);
 }
 
