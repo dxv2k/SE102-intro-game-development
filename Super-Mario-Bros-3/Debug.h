@@ -18,6 +18,8 @@
 		va_end(argp);				\
 }
 
+HWND _hwnd = NULL;
+
 void DebugOut(wchar_t *fmt, ...);
 void DebugOutTitle(wchar_t *fmt, ...);
 void SetDebugWindow(HWND hwnd);
