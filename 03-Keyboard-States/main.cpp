@@ -60,7 +60,7 @@ void CSampleKeyHander::OnKeyUp(int KeyCode)
 {
 	DebugOut(L"[INFO] KeyUp: %d\n", KeyCode);
 	//DebugOutTitle(L"", MAIN_WINDOW_TITLE, KeyCode); 
-	DebugOutTitle(L"", KeyCode); 
+	//DebugOutTitle(L"", KeyCode); 
 
 }
 
