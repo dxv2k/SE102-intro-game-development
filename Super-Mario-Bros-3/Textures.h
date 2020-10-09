@@ -17,7 +17,7 @@ public:
 		to load *.json file for the ease of work load
 	*/
 	void Add(int id, LPCWSTR filePath, D3DCOLOR transparentColor); 
-	LPDIRECT3DTEXTURE9 Get(unsigned int i);
+	LPDIRECT3DTEXTURE9 Get(unsigned int idx);
 	static Textures * GetInstance();
 
 };
