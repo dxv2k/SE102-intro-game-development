@@ -54,7 +54,7 @@ void Game::Init(HWND hWnd)
 	// Initialize sprite helper from Direct3DX helper library
 	D3DXCreateSprite(d3ddv, &spriteHandler);
 
-	DebugOut(L"[INFO] InitGame done;\n");
+	OutputDebugString(L"[INFO] InitGame done;\n");
 }
 
 /*
@@ -104,14 +104,14 @@ LPDIRECT3DTEXTURE9 Game::LoadTexture(LPCWSTR texturePath)
 		NULL,
 		&texture);								// Created texture pointer
 
-	/*if (result != D3D_OK)
+	if (result != D3D_OK)
 	{
-		DebugOut(L"[ERROR] CreateTextureFromFile failed. File: %s\n", texturePath);
+		OutputDebugString(L"[ERROR] CreateTextureFromFile failed.");
 		return NULL;
 	}
 
-	DebugOut(L"[INFO] Texture loaded Ok: %s \n", texturePath);
-	return texture;*/
+	OutputDebugString(L"[INFO] Texture loaded Ok \n");
+	return texture;
 }
 
 Game::~Game()
