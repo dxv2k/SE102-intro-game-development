@@ -18,7 +18,7 @@ class Game {
 	int backBufferHeight = 0;
 
 public:
-	void Init(HWND hWnd);
+	void Init(HWND hWnd); // init directX parameter, device 
 	void Draw(float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top, int right, int bottom);
 	LPDIRECT3DTEXTURE9 LoadTexture(LPCWSTR texturePath);
 

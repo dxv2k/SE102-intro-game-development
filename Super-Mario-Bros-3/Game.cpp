@@ -43,18 +43,18 @@ void Game::Init(HWND hWnd)
 		&d3dpp,
 		&d3ddv);
 
-	//if (d3ddv == NULL)
-	//{
-	//	DebugOut(L"[ERROR] CreateDevice failed\n");
-	//	return;
-	//}
+	if (d3ddv == NULL)
+	{
+		OutputDebugString(L"[ERROR] CreateDevice failed\n");
+		return;
+	}
 
 	d3ddv->GetBackBuffer(0, 0, D3DBACKBUFFER_TYPE_MONO, &backBuffer);
 
 	// Initialize sprite helper from Direct3DX helper library
 	D3DXCreateSprite(d3ddv, &spriteHandler);
 
-	//DebugOut(L"[INFO] InitGame done;\n");
+	DebugOut(L"[INFO] InitGame done;\n");
 }
 
 /*
