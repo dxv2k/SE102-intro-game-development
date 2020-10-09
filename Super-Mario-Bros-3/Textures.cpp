@@ -1,24 +1,24 @@
-#include <unordered_map>
-#include  <d3dx9.h> 
+#include <Windows.h>
 
-using namespace std; 
+#include <d3d9.h>
+#include <d3dx9.h>
 
-// Manage texture database 
-class Textures {
-	static Textures* __instance; 
-	unordered_map<int, LPDIRECT3DTEXTURE9> textures;
-public: 
-	Textures(); 
-	/*
-		Future implementation of Add() will replace manually add id   	
-		to load *.json file for the ease of work load
-	*/
-	void Add(int id, LPCWSTR filePath, D3DCOLOR transparentColor); 
-	LPDIRECT3DTEXTURE9 Get(unsigned int i);
-	static Textures * GetInstance();
+#include "Debug.h"
+#include "Game.h"
+#include "Textures.h"
 
-};
+Textures* Textures::__instance = NULL; 
 
+Textures::Textures() 
+{ 
+	// Leave empty on purpose 
+}
+
+Textures* Textures::GetInstance() {
+	if (__instance == NULL)
+		__instance = new Textures(); 
+	return __instance; 
+}
 
 
 
