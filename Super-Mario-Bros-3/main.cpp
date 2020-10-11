@@ -15,7 +15,7 @@
 #define WINDOW_CLASS_NAME L"Super Mario Bros 3" 
 #define WINDOW_TITLE L"Super Mario Bros 3" 
 #define WINDOW_ICON_PATH L"mario.ico"
-#define MAIN_WINDOW_TITLE L'Super Mario Bros 3"
+#define MAIN_WINDOW_TITLE L"Super Mario Bros 3"
 
 #define D3DCOLOR_WHITE D3DCOLOR_XRGB(255, 255, 255)
 #define BACKGROUND_COLOR D3DCOLOR_XRGB(0,0,0) 
