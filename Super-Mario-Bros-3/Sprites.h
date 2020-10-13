@@ -22,7 +22,6 @@ public:
 		int upper_left_y, 
 		int bottom_right_x, 
 		int bottom_right_y); 
-	void Add(int ID, LPCWSTR filePath, D3DCOLOR transparentColor); 
 	void Draw(float x, float y); 
 };
 
@@ -33,14 +32,20 @@ class Sprites {
 	unordered_map<int, LPSPRITE> sprites; 
 
 public: 
-	void Add(int id, int left, int top, int right, int bottom, LPDIRECT3DTEXTURE9 tex);
+
+	/*
+		In this version, I'm trying to get the code up and running as fast as possible. 
+		So like this Add() function below here and how its manage Sprites is not very good
+		TODO: REMEMBER Add() and manage sprites is not very effective!  
+	*/
+	void Add(
+		int id, 
+		int upper_left_x, 
+		int upper_left_y, 
+		int bottom_right_x, 
+		int bottom_right_y, 
+		LPDIRECT3DTEXTURE9 tex);
 	LPSPRITE Get(int id);
 
 	static Sprites * GetInstance();
-
 };
-
-
-
-
-
