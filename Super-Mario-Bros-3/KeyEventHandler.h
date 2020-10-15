@@ -4,7 +4,7 @@
 #include <d3dx9.h>
 
 
-class KeyboardEventHandler {
+class KeyEventHandler {
 public: 
 	virtual void KeyState(BYTE* state) = 0; 
 	virtual void OnKeyDown(int KeyCode) = 0; 
