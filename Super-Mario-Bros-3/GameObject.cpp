@@ -1,8 +1,30 @@
 #include "GameObject.h"
+#include "Game.h" 
 
-GameObject::GameObject(float x, float y)
-{
-	this->x = x;
-	this->y = y;
+
+//vector <LPANIMATION> GameObject::animations;
+
+GameObject::GameObject() {
+	x = y = 0; 
+	vx = vy = 0; 
+	nx = 1; // default object facing to the right  
 }
+
+GameObject::~GameObject() {
+	// leave empty on purpose 
+}
+
+
+void GameObject::Update(DWORD dt) {
+	x += vx * dt; 
+	y += vy * dt; 
+}
+
+void GameObject::Render() {
+	// leave empty on purpose 
+}
+
+
+
+
 
