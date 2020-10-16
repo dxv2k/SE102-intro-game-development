@@ -114,6 +114,16 @@ LPDIRECT3DTEXTURE9 Game::LoadTexture(LPCWSTR texturePath)
 	return texture;
 }
 
+int IsKeyDown(int KeyCode) {
+	return (KeyCode & 0x80) > 0; 
+}
+
+void ProcessKeyboard() {
+
+}
+
+
+
 Game::~Game()
 {
 	if (spriteHandler != NULL) spriteHandler->Release();

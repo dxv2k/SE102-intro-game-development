@@ -3,6 +3,8 @@
 #include <Windows.h>
 #include <d3d9.h>
 #include <d3dx9.h>
+#include "KeyEventHandler.h"
+
 
 
 class Game {
@@ -20,9 +22,15 @@ class Game {
 
 public:
 	void Init(HWND hWnd); // init directX parameter, device 
-	void Draw(float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top, int right, int bottom);
-	LPDIRECT3DTEXTURE9 LoadTexture(LPCWSTR texturePath);
 
+	void InitKeyboard(LPKEYHANDLER); 
+	int IsKeyDown(int KeyCode); 
+	void ProcessKeyboard(); 
+
+
+	void Draw(float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top, int right, int bottom);
+
+	LPDIRECT3DTEXTURE9 LoadTexture(LPCWSTR texturePath);
 	LPDIRECT3DDEVICE9 GetDirect3DDevice() { return this->d3ddv; }
 	LPDIRECT3DSURFACE9 GetBackBuffer() { return backBuffer; }
 	LPD3DXSPRITE GetSpriteHandler() { return this->spriteHandler; }
