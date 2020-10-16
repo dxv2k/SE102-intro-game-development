@@ -17,3 +17,14 @@ public:
 	Ex: Mario -> 4 status -> Num1,2,3,4 -> status 1,2,3,4
 */
 
+
+/* 
+	 In furture version, default keyboard control for GameObject 
+	 will be set right here. 
+	 For example: 
+		W,S,A,D, SPACE will be use to control game Object 
+
+*/
+
+
+
