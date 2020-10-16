@@ -1,7 +1,7 @@
 #pragma once
 
 #include "GameObject.h"
-
+#include "KeyEventHandler.h"
 
 #define MARIO_WALKING_SPEED		0.1f
 #define MARIO_RUNNING_SPEED		0.4f  // Test running 

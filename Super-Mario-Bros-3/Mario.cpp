@@ -1,5 +1,4 @@
 #include "Mario.h"
-#include "KeyEventHandler.h"
 
 void Mario::Update(DWORD dt)
 {
@@ -63,12 +62,8 @@ void Mario::SetState(int state)
 }
 
 // KeyEventHandler holds in Mario_GameObject 
-void KeyEventHandler::KeyState(BYTE* state) {
-
-
-
-
-}
+//void KeyEventHandler::KeyState(BYTE* state) {
+//}
 
 
 
