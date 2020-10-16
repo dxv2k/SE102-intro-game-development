@@ -144,8 +144,10 @@
     <ClCompile Include="Animations.cpp" />
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="KeyEventHandler.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Mario.cpp" />
     <ClCompile Include="Sprites.cpp" />
     <ClCompile Include="Textures.cpp" />
   </ItemGroup>
@@ -153,7 +155,9 @@
     <ClInclude Include="Animations.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Debug.h" />
-    <ClInclude Include="KeyEvenHandler.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="KeyEventHandler.h" />
+    <ClInclude Include="Mario.h" />
     <ClInclude Include="Sprites.h" />
     <ClInclude Include="Textures.h" />
   </ItemGroup>
