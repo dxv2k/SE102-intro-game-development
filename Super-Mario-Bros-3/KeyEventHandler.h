@@ -15,7 +15,7 @@ public:
 	virtual void OnKeyUp(int KeyCode); 
 };
 
-typedef KeyEventHandler * LPKEYHANDLER; 
+typedef KeyEventHandler * LPKEYEVENTHANDLER;
 
 /*
 	TODO: Remember to create custom key so that we are able 
