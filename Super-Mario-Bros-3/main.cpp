@@ -9,8 +9,13 @@
 #include <time.h>
 #include <stdlib.h>
 
-#include <Game.h> 
-#include <Debug.h>
+#include "Game.h" 
+#include "GameObject.h" 
+#include "Debug.h "
+#include "Mario.h"
+#include "Textures.h"
+#include "Sprites.h"
+
 
 #define WINDOW_CLASS_NAME L"Super Mario Bros 3" 
 #define WINDOW_TITLE L"Super Mario Bros 3" 
@@ -27,6 +32,7 @@
 HWND hWnd = 0; 
 
 Game* game; 
+Mario* mario; 
 
 LRESULT CALLBACK WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -41,7 +47,7 @@ LRESULT CALLBACK WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 }
 
 void Update(DWORD dt) {
-	//Game::GetInstance()->Update(dt); 
+	mario->Update(dt);
 }
 
 // Render a frame
@@ -128,6 +134,7 @@ int Run() {
 			}
 		}
 		DWORD now = GetTickCount(); 
+
 		// dt: the time between (beginning of last frame) and now
 		// this frame: the frame we are about to render
 		DWORD dt = now - frameStart; 
@@ -142,9 +149,11 @@ int Run() {
 	return 1;
 }
 
+
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
 	HWND hWnd = CreateGameWindow(hInstance, nCmdShow, WINDOW_WIDTH, WINDOW_HEIGHT); 
 	return 0; 
+
 }
 
 void LoadResources() {
