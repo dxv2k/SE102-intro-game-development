@@ -2,14 +2,20 @@
 #include <Windows.h>
 #include <d3d9.h>
 #include <d3dx9.h>
+#include <dinput.h>
 
+
+#define KEYBOARD_BUFFER_SIZE 1024
+#define DIRECTINPUT_VERSION 0x0800
 
 class KeyEventHandler {
 public: 
-	virtual void KeyState(BYTE* state) = 0; 
-	virtual void OnKeyDown(int KeyCode) = 0; 
-	virtual void OnKeyUp(int KeyCode) = 0; 
+	virtual void KeyState(BYTE* state); 
+	virtual void OnKeyDown(int KeyCode); 
+	virtual void OnKeyUp(int KeyCode); 
 };
+
+typedef KeyEventHandler * LPKEYHANDLER; 
 
 /*
 	TODO: Remember to create custom key so that we are able 
