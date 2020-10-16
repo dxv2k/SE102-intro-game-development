@@ -15,7 +15,7 @@
 #include "Mario.h"
 #include "Textures.h"
 #include "Sprites.h"
-
+#include "KeyEventHandler.h"
 
 #define WINDOW_CLASS_NAME L"Super Mario Bros 3" 
 #define WINDOW_TITLE L"Super Mario Bros 3" 
@@ -45,6 +45,27 @@ LRESULT CALLBACK WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	}
 	return 0;
 }
+
+void KeyEventHandler::OnKeyDown(int KeyCode) {
+	switch (KeyCode)
+	{
+	case DIK_SPACE: 
+		mario->SetState(MARIO_STATE_JUMP); 
+	}
+}
+void KeyEventHandler::OnKeyUp(int KeyCode) {
+	// Currently nothing here
+}
+
+void KeyEventHandler::KeyState(BYTE* states) {
+	if (game->IsKeyDown(DIK_RIGHT))
+		mario->SetState(MARIO_STATE_WALKING_RIGHT); 
+	else if (game->IsKeyDown(DIK_LEFT))
+		mario->SetState(MARIO_STATE_WALKING_LEFT); 
+	else 
+		mario->SetState(MARIO_STATE_IDLE); 
+}
+
 
 void Update(DWORD dt) {
 	mario->Update(dt);
