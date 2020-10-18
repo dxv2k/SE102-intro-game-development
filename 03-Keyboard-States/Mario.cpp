@@ -18,17 +18,19 @@ void CMario::Update(DWORD dt)
 
 void CMario::Render()
 {
+	
 	int ani;
 	if (vx == 0)
 	{
-		if (nx>0) ani = MARIO_ANI_IDLE_RIGHT;
+		if (nx > 0) ani = MARIO_ANI_IDLE_RIGHT;
 		else ani = MARIO_ANI_IDLE_LEFT;
 	}
-	else if (vx > 0) 
-		ani = MARIO_ANI_WALKING_RIGHT; 
+	else if (vx > 0)
+		ani = MARIO_ANI_WALKING_RIGHT;
 	else ani = MARIO_ANI_WALKING_LEFT;
 
 	animations[ani]->Render(x, y);
+	
 }
 
 void CMario::SetState(int state)
@@ -72,7 +74,6 @@ void CMario::SetStatus(int status) {
 		status = 11;
 		break; 
 	}
-
 
 }
 
