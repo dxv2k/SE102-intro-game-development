@@ -25,19 +25,37 @@
 #define MARIO_ANI_WALKING_LEFT		3
 
 
-//// Mario status
-//#define SMALL_MARIO 10 
-//#define SUPER_MARIO 11 // Also Mario in this testing version
-//#define FIRE_MARIO 12
-//#define RACCOON_MARIO 13 
-//#define INVINCIBLE_MARIO 14 
+//cac trang thai rieng danh cho mario lon
+#define MARIO_STATE_SIT 400
+#define MARIO_STATE_HIT_TAIL 500
+#define MARIO_STATE_SHOOT_FIRE	600
 
+/*-----------------------SMALL-MARIO-----------------------------*/
+#define MARIO_ANI_IDLE_RIGHT		0
+#define MARIO_ANI_IDLE_LEFT			1
+#define MARIO_ANI_WALKING_RIGHT		2
+#define MARIO_ANI_WALKING_LEFT		3
+#define MARIO_ANI_JUMP_RIGHT 4
+#define MARIO_ANI_JUMP_LEFT 5
+
+// ID for animations 
 #define MARIO_SMALL_IDLE_LEFT 10000
 #define MARIO_SMALL_IDLE_RIGHT 10001
 #define MARIO_SMALL_WALK_LEFT 10002
 #define MARIO_SMALL_WALK_RIGHT 10003
 #define MARIO_SMALL_JUMP_LEFT 10004
 #define MARIO_SMALL_JUMP_RIGHT 10005
+
+
+/*-----------------------SUPER-MARIO-OR-BIG-MARIO-----------------------*/
+#define MARIO_BIG_ANI_IDLE_RIGHT 6
+#define MARIO_BIG_ANI_IDLE_LEFT 7
+#define MARIO_BIG_ANI_WALKING_RIGHT 8
+#define MARIO_BIG_ANI_WALKING_LEFT 9
+#define MARIO_BIG_ANI_JUMP_RIGHT 10
+#define MARIO_BIG_ANI_JUMP_LEFT 11
+#define MARIO_BIG_ANI_SIT_RIGHT 12
+#define MARIO_BIG_ANI_SIT_LEFT 13
 
 #define MARIO_BIG_IDLE_LEFT 11000
 #define MARIO_BIG_IDLE_RIGHT 11001
@@ -49,6 +67,19 @@
 #define MARIO_BIG_JUMP_RIGHT 11007
 #define MARIO_BIG_SIT_LEFT 11008
 #define MARIO_BIG_SIT_RIGHT 11009
+
+
+/*----------------------------RACOON-MARIO-----------------------------*/
+#define MARIO_RACOON_ANI_IDLE_RIGHT 14
+#define MARIO_RACOON_ANI_IDLE_LEFT 15
+#define MARIO_RACOON_ANI_WALKING_RIGHT 16
+#define MARIO_RACOON_ANI_WALKING_LEFT 17
+#define MARIO_RACOON_ANI_JUMP_RIGHT 18
+#define MARIO_RACOON_ANI_JUMP_LEFT 19
+#define MARIO_RACOON_ANI_SIT_RIGHT 20
+#define MARIO_RACOON_ANI_SIT_LEFT 21
+#define MARIO_RACOON_ANI_HIT_TAIL_RIGHT 22
+#define MARIO_RACOON_ANI_HIT_TAIL_LEFT 23
 
 #define MARIO_RACOON_IDLE_LEFT 12000
 #define MARIO_RACOON_IDLE_RIGHT 12001
@@ -65,6 +96,19 @@
 #define MARIO_RACOON_HIT_LEFT 12012
 #define MARIO_RACOON_HIT_RIGHT 12013
 
+
+/*----------------------------FIRE-MARIO-----------------------------*/
+#define MARIO_FIRE_ANI_IDLE_RIGHT 24
+#define MARIO_FIRE_ANI_IDLE_LEFT 25
+#define MARIO_FIRE_ANI_WALKING_RIGHT 26
+#define MARIO_FIRE_ANI_WALKING_LEFT 27
+#define MARIO_FIRE_ANI_JUMP_RIGHT 28
+#define MARIO_FIRE_ANI_JUMP_LEFT 29
+#define MARIO_FIRE_ANI_SIT_RIGHT 30
+#define MARIO_FIRE_ANI_SIT_LEFT 31
+#define MARIO_FIRE_ANI_SHOOT_RIGHT 32
+#define MARIO_FIRE_ANI_SHOOT_LEFT 33
+
 #define MARIO_FIRE_IDLE_LEFT 13000
 #define MARIO_FIRE_IDLE_RIGHT 13001
 #define MARIO_FIRE_WALK_LEFT 13002
@@ -80,11 +124,18 @@
 #define MARIO_FIRE_SHOOT_RIGHT 13012
 #define MARIO_FIRE_SHOOT_RIGHT_1 13013
 
+
+// Status of Mario
+#define MARIO_SMALL 1 // Default is small Mario
+#define MARIO_BIG 2  // Super Mario
+#define MARIO_RACOON 3
+#define MARIO_FIRE 4
+#define MARIO_STAR 5
 class CMario : public CGameObject
 {
 public: 
+	CMario(); 
 	void Update(DWORD dt);
 	void Render();
 	void SetState(int state);
-	void SetStatus(int status); 
 };
