@@ -246,10 +246,9 @@ void CMario::SetState(int state)
 }
 
 CMario::CMario() {
-	//status = MARIO_SMALL; 
+	status = MARIO_SMALL; 
 	//status = MARIO_BIG; 
 	//status = MARIO_RACOON; 
-	//status = MARIO_FIRE; 
-	status = MARIO_STAR; 
+	//status = MARIO_STAR; 
 }
 
