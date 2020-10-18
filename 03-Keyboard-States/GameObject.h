@@ -22,6 +22,8 @@ protected:
 	int nx;	 
 
 	int state;									
+	
+	int status;  // For debugging multi status of character  
 
 	static vector<LPANIMATION> animations;
 
@@ -30,6 +32,7 @@ public:
 	void SetSpeed(float vx, float vy) { this->vx = vx, this->vy = vy; }
 
 	void SetState(int state) { this->state = state; }
+	void SetStatus(int status) { this->status = status; }
 	int GetState() { return this->state; }
 
 

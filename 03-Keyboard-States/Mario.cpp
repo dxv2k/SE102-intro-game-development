@@ -61,3 +61,21 @@ void CMario::SetState(int state)
 	}
 }
 
+void CMario::SetStatus(int status) {
+	CGameObject::SetStatus(status); 
+	switch (status)
+	{
+	case SMALL_MARIO: 
+		status = 10;
+		break; 
+	case SUPER_MARIO: 
+		status = 11;
+		break; 
+	}
+
+
+}
+
+
+
+

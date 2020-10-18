@@ -30,6 +30,7 @@
 #define MAX_FRAME_RATE 90
 
 #define ID_TEX_MARIO 0
+#define ID_TEX_NEW_MARIO 1 // testing purpose
 #define ID_TEX_ENEMY 10
 #define ID_TEX_MISC 20
 
@@ -66,11 +67,13 @@ void CSampleKeyHander::OnKeyUp(int KeyCode)
 
 void CSampleKeyHander::KeyState(BYTE *states)
 {
-	if (game->IsKeyDown(DIK_RIGHT))
-		mario->SetState(MARIO_STATE_WALKING_RIGHT);
-	else if (game->IsKeyDown(DIK_LEFT))
-		mario->SetState(MARIO_STATE_WALKING_LEFT);
-	
+	// ORIGINAL CODE 
+	//if (game->IsKeyDown(DIK_RIGHT))
+	//	mario->SetState(MARIO_STATE_WALKING_RIGHT);
+	//else if (game->IsKeyDown(DIK_LEFT))
+	//	mario->SetState(MARIO_STATE_WALKING_LEFT);
+	//else mario->SetState(MARIO_STATE_IDLE);
+
 	// Idea: press SHIFT (or additional key) -> mario from WALKING TO RUNNING
 	// error in line below 
 	//else if (game->iskeydown(dikeyboard_lshift))
@@ -81,10 +84,15 @@ void CSampleKeyHander::KeyState(BYTE *states)
 		But when I tried with A,B,C,.. it seems like working perfectly 
 		Need further work on this 
 	*/
+	//else if (game->IsKeyDown(DIK_A))
+	//	mario->SetState(MARIO_STATE_RUNNING_LEFT); 
+	//else if (game->IsKeyDown(DIK_B))
+	//	mario->SetState(MARIO_STATE_RUNNING_RIGHT); 
+
+	if (game->IsKeyDown(DIK_D))
+		mario->SetState(MARIO_STATE_WALKING_RIGHT);
 	else if (game->IsKeyDown(DIK_A))
-		mario->SetState(MARIO_STATE_RUNNING_LEFT); 
-	else if (game->IsKeyDown(DIK_B))
-		mario->SetState(MARIO_STATE_RUNNING_RIGHT); 
+		mario->SetState(MARIO_STATE_WALKING_LEFT);
 	else mario->SetState(MARIO_STATE_IDLE);
 }
 
@@ -110,41 +118,49 @@ void LoadResources()
 	CTextures * textures = CTextures::GetInstance();
 
 	textures->Add(ID_TEX_MARIO, L"textures\\mario.png",D3DCOLOR_XRGB(176, 224, 248));
+	
+	// new textures with left and right states
+	textures->Add(ID_TEX_NEW_MARIO, L"textures\\new_mario.png",D3DCOLOR_XRGB(255, 255, 255));
 
 	CSprites * sprites = CSprites::GetInstance();
 	CAnimations * animations = CAnimations::GetInstance();
 	
 	LPDIRECT3DTEXTURE9 texMario = textures->Get(ID_TEX_MARIO);
-
-
+	/*---------------------SUPER-MARIO-OR-MARIO-------------*/
+	// Mario IDLE RIGHT 
 	sprites->Add(10001, 246, 154, 260, 181, texMario);
 
+	// Mario WALKING RIGHT 
 	sprites->Add(10002, 275, 154, 290, 181, texMario);
 	sprites->Add(10003, 304, 154, 321, 181, texMario);
 
+	// Mario IDLE LEFT  
 	sprites->Add(10011, 186, 154, 200, 181, texMario);
 
+	// Mario WALKING LEFT
 	sprites->Add(10012, 155, 154, 170, 181, texMario);
 	sprites->Add(10013, 125, 154, 140, 181, texMario);
-
+	////////////////////////////////////////////////////////
 
 	LPANIMATION ani;
-
+	// Mario IDLE RIGHT 
 	ani = new CAnimation(100);	
 	ani->Add(10001);
 	animations->Add(400, ani);
 
+	// Mario IDLE LEFT  
 	ani = new CAnimation(100);
 	ani->Add(10011);
 	animations->Add(401, ani);
 
-
+	// Mario WALKING RIGHT 
 	ani = new CAnimation(100);
 	ani->Add(10001);
 	ani->Add(10002);
 	ani->Add(10003);
 	animations->Add(500, ani);
 
+	// Mario WALKING LEFT
 	ani = new CAnimation(100);
 	ani->Add(10011);
 	ani->Add(10012);
@@ -156,6 +172,59 @@ void LoadResources()
 	CMario::AddAnimation(401);		// idle left
 	CMario::AddAnimation(500);		// walk right
 	CMario::AddAnimation(501);		// walk left
+
+	////////////////////////////////////////////////////////
+
+	LPDIRECT3DTEXTURE9 texSmallMario = textures->Get(ID_TEX_NEW_MARIO);
+	/*---------------------SMALL-MARIO--------------------*/
+	// Small Mario IDLE RIGHT 
+	sprites->Add(20001, 214, 88, 21, 18, texSmallMario);
+
+	// Small Mario WALKING RIGHT 
+	sprites->Add(20002, 214, 88, 21, 18, texSmallMario);
+	sprites->Add(20003, 253, 88, 22, 22, texSmallMario);
+
+	// Small Mario IDLE LEFT  
+	sprites->Add(20011, 174, 87, 19, 20, texSmallMario);
+
+	// Small Mario WALKING LEFT
+	sprites->Add(20012, 174, 87, 19, 20, texSmallMario);
+	sprites->Add(20013, 133, 88, 20, 20, texSmallMario);
+	////////////////////////////////////////////////////////
+
+	LPANIMATION ani;
+	// Small Mario IDLE RIGHT 
+	ani = new CAnimation(100);	
+	ani->Add(10001);
+	animations->Add(400, ani);
+
+	// Small Mario IDLE LEFT  
+	ani = new CAnimation(100);
+	ani->Add(10011);
+	animations->Add(401, ani);
+
+	// Small Mario WALKING RIGHT 
+	ani = new CAnimation(100);
+	ani->Add(10001);
+	ani->Add(10002);
+	ani->Add(10003);
+	animations->Add(500, ani);
+
+	// Small Mario WALKING LEFT
+	ani = new CAnimation(100);
+	ani->Add(10011);
+	ani->Add(10012);
+	ani->Add(10013);
+	animations->Add(501, ani);
+
+	mario = new CMario();
+	CMario::AddAnimation(400);		// idle right
+	CMario::AddAnimation(401);		// idle left
+	CMario::AddAnimation(500);		// walk right
+	CMario::AddAnimation(501);		// walk left
+
+	////////////////////////////////////////////////////////
+
 
 	mario->SetPosition(0.0f, 100.0f);
 }
