@@ -32,9 +32,11 @@ public:
 	void SetSpeed(float vx, float vy) { this->vx = vx, this->vy = vy; }
 
 	void SetState(int state) { this->state = state; }
-	void SetStatus(int status) { this->status = status; }
 	int GetState() { return this->state; }
 
+	// For debugging changing status of Mario character  
+	void SetStatus(int status) { this->status = status; }
+	int GetStatus() { return this->status; }
 
 	static void AddAnimation(int aniId);
 
