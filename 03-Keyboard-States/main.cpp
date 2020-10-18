@@ -130,7 +130,7 @@ void LoadResources()
 	// Mario IDLE RIGHT 
 	sprites->Add(10001, 246, 154, 260, 181, texMario);
 
-	// Mario WALKING RIGHT 
+	// Mario WALKING RIGHT -> IDLE + WALKING RIGHT 
 	sprites->Add(10002, 275, 154, 290, 181, texMario);
 	sprites->Add(10003, 304, 154, 321, 181, texMario);
 
@@ -192,39 +192,38 @@ void LoadResources()
 	sprites->Add(20013, 133, 88, 20, 20, texSmallMario);
 	////////////////////////////////////////////////////////
 
-	LPANIMATION ani;
+	//LPANIMATION ani; //already exists
 	// Small Mario IDLE RIGHT 
 	ani = new CAnimation(100);	
-	ani->Add(10001);
-	animations->Add(400, ani);
+	ani->Add(20001);
+	animations->Add(100, ani);
 
 	// Small Mario IDLE LEFT  
 	ani = new CAnimation(100);
 	ani->Add(10011);
-	animations->Add(401, ani);
+	animations->Add(101, ani);
 
 	// Small Mario WALKING RIGHT 
 	ani = new CAnimation(100);
 	ani->Add(10001);
 	ani->Add(10002);
 	ani->Add(10003);
-	animations->Add(500, ani);
+	animations->Add(200, ani);
 
 	// Small Mario WALKING LEFT
 	ani = new CAnimation(100);
 	ani->Add(10011);
 	ani->Add(10012);
 	ani->Add(10013);
-	animations->Add(501, ani);
+	animations->Add(201, ani);
 
-	mario = new CMario();
-	CMario::AddAnimation(400);		// idle right
-	CMario::AddAnimation(401);		// idle left
-	CMario::AddAnimation(500);		// walk right
-	CMario::AddAnimation(501);		// walk left
+	//mario = new CMario(); //already exists above
+	CMario::AddAnimation(100);		// idle right
+	CMario::AddAnimation(101);		// idle left
+	CMario::AddAnimation(200);		// walk right
+	CMario::AddAnimation(201);		// walk left
 
 	////////////////////////////////////////////////////////
-
 
 	mario->SetPosition(0.0f, 100.0f);
 }
