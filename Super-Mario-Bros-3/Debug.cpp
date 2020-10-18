@@ -1,6 +1,8 @@
 #include <Windows.h>
 #include "debug.h"
 
+// Debug not working  
+
 void DebugOut(wchar_t *fmt, ...)
 {
 	wchar_t s[4096];
