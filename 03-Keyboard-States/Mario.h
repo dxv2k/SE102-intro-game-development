@@ -130,7 +130,8 @@
 #define MARIO_BIG 2  // Super Mario
 #define MARIO_RACOON 3
 #define MARIO_FIRE 4
-#define MARIO_STAR 5
+
+
 class CMario : public CGameObject
 {
 public: 
