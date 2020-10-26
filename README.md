@@ -1,5 +1,5 @@
 # SE102 - COURSE PROJECT FOR INTRODUCTORY TO GAME DEVELOPMENT 
-## Built by: 18521662 - Dinh Xuan Vu - KnightV
+## Built by: 18521662 - Dinh Xuan Vu
 
 # Super Mario Bros 3 
 
