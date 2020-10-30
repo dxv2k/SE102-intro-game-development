@@ -14,18 +14,22 @@ with open(path,'r') as json_file:
         "filename": "mario_animation (fire_mario) 1.aseprite" 
     -> Trying to get fire_mario and number "0"
 '''  
-tag_pattern = "(?:(?<=\().+?(?=\))|(?<=\[).+?(?=\]))" 
-
-tag_str = spritesheet["frames"][0]["filename"]
-print(tag_str)
-tag = re.search("(?:(?<=\().+?(?=\))|(?<=\[).+?(?=\]))",tag_str)
-print(tag.group())
-
-
+# tag_pattern = "(?:(?<=\().+?(?=\))|(?<=\[).+?(?=\]))" 
+# 
+# tag_str = spritesheet["frames"][0]["filename"]
+# print(tag_str)
+# tag = re.search("(?:(?<=\().+?(?=\))|(?<=\[).+?(?=\]))",tag_str)
+# print(tag.group())
 
 
+frames_len = len(spritesheet["frames"]) 
+arr = []
+for idx in range(frames_len): 
+    tag = spritesheet["frames"][idx]["filename"]
+    tag_str = re.search("(?:(?<=\().+?(?=\))|(?<=\[).+?(?=\]))",tag).group() 
+    arr.append(tag_str) 
 
-
+print(arr)
 
 
 # print(len(spritesheet["frames"]))
