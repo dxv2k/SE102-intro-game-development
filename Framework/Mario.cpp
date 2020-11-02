@@ -5,6 +5,7 @@
 #include "Mario.h"
 #include "Game.h"
 
+#include "Koopas.h"
 #include "Goomba.h"
 #include "Portal.h"
 
@@ -77,7 +78,8 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 		for (UINT i = 0; i < coEventsResult.size(); i++)
 		{
 			LPCOLLISIONEVENT e = coEventsResult[i];
-
+			
+			// GOOMBA LOGIC PROCESS
 			if (dynamic_cast<CGoomba *>(e->obj)) // if e->obj is Goomba 
 			{
 				CGoomba *goomba = dynamic_cast<CGoomba *>(e->obj);
@@ -87,6 +89,7 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 				{
 					if (goomba->GetState()!= GOOMBA_STATE_DIE)
 					{
+						//DebugOut(L"GOOMBA DIE"); 
 						goomba->SetState(GOOMBA_STATE_DIE);
 						vy = -MARIO_JUMP_DEFLECT_SPEED;
 					}
@@ -108,11 +111,48 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 					}
 				}
 			} // if Goomba
+			//////////////////////////////////////////////////////
+
 			else if (dynamic_cast<CPortal *>(e->obj))
 			{
 				CPortal *p = dynamic_cast<CPortal *>(e->obj);
 				CGame::GetInstance()->SwitchScene(p->GetSceneId());
 			}
+
+			//////////////////////////////////////////////////////
+			// KOOPAS LOGIC PROCESS
+			else if (dynamic_cast<CKoopas *>(e->obj)) 
+			{
+				CKoopas *koopas = dynamic_cast<CKoopas *>(e->obj);
+				// jump on top >> kill Goomba and deflect a bit 
+				if (e->ny < 0)
+				{
+					if (koopas->GetState()!= KOOPAS_STATE_DIE)
+					{
+						DebugOut(L"KOOPAS DIE"); 
+						koopas->SetState(KOOPAS_STATE_DIE);
+						vy = -MARIO_JUMP_DEFLECT_SPEED;
+					}
+				}
+				else if (e->nx != 0)
+				{
+					if (untouchable==0)
+					{
+						if (koopas->GetState()!=KOOPAS_STATE_DIE)
+						{
+							if (level > MARIO_LEVEL_SMALL)
+							{
+								level = MARIO_LEVEL_SMALL;
+								StartUntouchable();
+							}
+							else 
+								SetState(MARIO_STATE_DIE);
+						}
+					}
+				}
+			//////////////////////////////////////////////////////
+			}
+
 		}
 	}
 
