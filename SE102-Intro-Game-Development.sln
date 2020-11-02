@@ -18,6 +18,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Super-Mario-Bros-3", "Super-Mario-Bros-3\Super-Mario-Bros-3.vcxproj", "{F45A2638-EF50-4DC7-8916-9FD2ABD8E586}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Framework", "Framework\Framework.vcxproj", "{223981BF-5513-43E6-98D1-96B34BA7E9C9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C83A385D-5992-4E1B-B783-AB1D446414D5} = {C83A385D-5992-4E1B-B783-AB1D446414D5}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
