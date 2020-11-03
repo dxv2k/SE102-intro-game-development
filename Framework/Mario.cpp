@@ -241,6 +241,11 @@ void CMario::GetBoundingBox(float &left, float &top, float &right, float &bottom
 	}
 }
 
+void UpdateAccel(float newAccel) {
+
+}
+
+
 /*
 	Reset Mario status to the beginning state of a scene
 */
