@@ -76,6 +76,7 @@ void CGame::Draw(float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top
 
 int CGame::IsKeyDown(int KeyCode)
 {
+	DebugOut(L"[INFO] KeyUp: %d\n", KeyCode);
 	return (keyStates[KeyCode] & 0x80) > 0;
 }
 

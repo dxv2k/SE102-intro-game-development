@@ -49,7 +49,9 @@ class CMario : public CGameObject
 	float start_x;			// initial position of Mario at scene
 	float start_y; 
 
-	float accel = 0.0f; // Player acceleration 
+	//float acceleration = 0.005f; // Player acceleration 
+	float acceleration = 0.1f; // Player acceleration 
+
 public: 
 	CMario(float x = 0.0f, float y = 0.0f);
 	virtual void Update(DWORD dt, vector<LPGAMEOBJECT> *colliable_objects = NULL);
@@ -58,10 +60,11 @@ public:
 	void SetState(int state);
 	void SetLevel(int l) { level = l; }
 	void StartUntouchable() { untouchable = 1; untouchable_start = GetTickCount(); }
-	
-	void UpdateAccel(float newAccel)
+
+	float GetAcceleration() { return this->acceleration;}
+
 
 	void Reset();
-
+	
 	virtual void GetBoundingBox(float &left, float &top, float &right, float &bottom);
 };

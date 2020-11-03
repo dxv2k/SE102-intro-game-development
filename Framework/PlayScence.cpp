@@ -276,6 +276,13 @@ void CPlayScene::Unload()
 	DebugOut(L"[INFO] Scene %s unloaded! \n", sceneFilePath);
 }
 
+void CPlayScenceKeyHandler::OnKeyUp(int KeyCode)
+{
+	DebugOut(L"[INFO] KeyUp: %d\n", KeyCode);
+
+}
+
+
 void CPlayScenceKeyHandler::OnKeyDown(int KeyCode)
 {
 	//DebugOut(L"[INFO] KeyDown: %d\n", KeyCode);
@@ -297,30 +304,39 @@ void CPlayScenceKeyHandler::KeyState(BYTE *states)
 	CGame *game = CGame::GetInstance();
 	CMario *mario = ((CPlayScene*)scence)->GetPlayer();
 	
-	
-	if (mario->GetState() == MARIO_STATE_DIE) return;
-	if (game->IsKeyDown(DIK_D)) {
-
-		mario->SetState(MARIO_STATE_WALKING_RIGHT);
-
-	}
-	else if (game->IsKeyDown(DIK_A)) {
-
-		mario->SetState(MARIO_STATE_WALKING_LEFT);
-
-	}
-	else
-		mario->SetState(MARIO_STATE_IDLE);
-
-	
-
-
-	// disable control key when Mario die 
+	//
 	//if (mario->GetState() == MARIO_STATE_DIE) return;
-	//if (game->IsKeyDown(DIK_D))
+	//if (game->IsKeyDown(DIK_D)) {
+
+	//	float vx, vy = 0.0f; 
+	//	mario->GetSpeed(vx,vy);
+	//	vx += mario->GetAcceleration() * mario->dt; 
+
 	//	mario->SetState(MARIO_STATE_WALKING_RIGHT);
-	//else if (game->IsKeyDown(DIK_A))
+	//	mario->SetSpeed(vx,vy); 
+
+	//	DebugOut(L"Mario Speed %d\n",vx); 
+	//}
+	//else if (game->IsKeyDown(DIK_A)) {
+
+	//	float vx, vy = 0.0f; 
+	//	mario->GetSpeed(vx,vy);
+	//	vx += mario->GetAcceleration() * mario->dt; 
+
 	//	mario->SetState(MARIO_STATE_WALKING_LEFT);
+	//	mario->SetSpeed(-vx,vy); 
+
+	//	DebugOut(L"Mario Speed %d\n",vx); 
+	//}
 	//else
 	//	mario->SetState(MARIO_STATE_IDLE);
+
+	// disable control key when Mario die 
+	if (mario->GetState() == MARIO_STATE_DIE) return;
+	if (game->IsKeyDown(DIK_D))
+		mario->SetState(MARIO_STATE_WALKING_RIGHT);
+	else if (game->IsKeyDown(DIK_A))
+		mario->SetState(MARIO_STATE_WALKING_LEFT);
+	else
+		mario->SetState(MARIO_STATE_IDLE);
 }
