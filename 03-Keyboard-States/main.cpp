@@ -66,11 +66,27 @@ void CSampleKeyHander::OnKeyUp(int KeyCode)
 
 void CSampleKeyHander::KeyState(BYTE *states)
 {
-	if (game->IsKeyDown(DIK_RIGHT))
-		mario->SetState(MARIO_STATE_WALKING_RIGHT);
-	else if (game->IsKeyDown(DIK_LEFT))
-		mario->SetState(MARIO_STATE_WALKING_LEFT);
-	
+	//if (game->IsKeyDown(DIK_RIGHT))
+	//	mario->SetState(MARIO_STATE_WALKING_RIGHT);
+	//else if (game->IsKeyDown(DIK_LEFT))
+	//	mario->SetState(MARIO_STATE_WALKING_LEFT);
+
+	if (game->IsKeyDown(DIK_D)) {
+		if (game->IsKeyDown(DIK_J))
+			mario->SetState(MARIO_STATE_RUNNING_RIGHT);
+		else
+			mario->SetState(MARIO_STATE_WALKING_RIGHT);
+	}
+	else if (game->IsKeyDown(DIK_A)) {
+		if (game->IsKeyDown(DIK_J)) {
+			mario->SetState(MARIO_STATE_RUNNING_LEFT);
+		}
+		else
+			mario->SetState(MARIO_STATE_WALKING_LEFT);
+	}
+	else
+		mario->SetState(MARIO_STATE_IDLE); 
+
 	// Idea: press SHIFT (or additional key) -> mario from WALKING TO RUNNING
 	// error in line below 
 	//else if (game->iskeydown(dikeyboard_lshift))
@@ -81,11 +97,11 @@ void CSampleKeyHander::KeyState(BYTE *states)
 		But when I tried with A,B,C,.. it seems like working perfectly 
 		Need further work on this 
 	*/
-	else if (game->IsKeyDown(DIK_A))
-		mario->SetState(MARIO_STATE_RUNNING_LEFT); 
-	else if (game->IsKeyDown(DIK_B))
-		mario->SetState(MARIO_STATE_RUNNING_RIGHT); 
-	else mario->SetState(MARIO_STATE_IDLE);
+	//else if (game->IsKeyDown(DIK_A))
+	//	mario->SetState(MARIO_STATE_RUNNING_LEFT); 
+	//else if (game->IsKeyDown(DIK_B))
+	//	mario->SetState(MARIO_STATE_RUNNING_RIGHT); 
+	//else mario->SetState(MARIO_STATE_IDLE);
 }
 
 LRESULT CALLBACK WinProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)

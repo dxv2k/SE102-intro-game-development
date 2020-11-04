@@ -61,8 +61,8 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 		FilterCollision(coEvents, coEventsResult, min_tx, min_ty, nx, ny, rdx, rdy);
 
 		// how to push back Mario if collides with a moving objects, what if Mario is pushed this way into another object?
-		//if (rdx != 0 && rdx!=dx)
-		//	x += nx*abs(rdx); 
+		if (rdx != 0 && rdx!=dx)
+			x += nx*abs(rdx); 
 		
 		// block every object first!
 		x += min_tx*dx + nx*0.4f;
@@ -112,14 +112,6 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 				}
 			} // if Goomba
 			//////////////////////////////////////////////////////
-
-			else if (dynamic_cast<CPortal *>(e->obj))
-			{
-				CPortal *p = dynamic_cast<CPortal *>(e->obj);
-				CGame::GetInstance()->SwitchScene(p->GetSceneId());
-			}
-
-			//////////////////////////////////////////////////////
 			// KOOPAS LOGIC PROCESS
 			else if (dynamic_cast<CKoopas *>(e->obj)) 
 			{
@@ -150,9 +142,15 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 						}
 					}
 				}
-			//////////////////////////////////////////////////////
 			}
-
+			//////////////////////////////////////////////////////
+			//PORTAL LOGIC PROCESS 
+			else if (dynamic_cast<CPortal *>(e->obj))
+			{
+				CPortal *p = dynamic_cast<CPortal *>(e->obj);
+				CGame::GetInstance()->SwitchScene(p->GetSceneId());
+			}
+			//////////////////////////////////////////////////////
 		}
 	}
 
@@ -240,6 +238,7 @@ void CMario::GetBoundingBox(float &left, float &top, float &right, float &bottom
 		bottom = y + MARIO_SMALL_BBOX_HEIGHT;
 	}
 }
+
 
 /*
 	Reset Mario status to the beginning state of a scene

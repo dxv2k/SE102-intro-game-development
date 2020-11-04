@@ -45,6 +45,7 @@ public:
 	void Draw(float x, float y, LPDIRECT3DTEXTURE9 texture, int left, int top, int right, int bottom);
 
 	int IsKeyDown(int KeyCode);
+	int IsKeyUp(int KeyCode); 
 	void ProcessKeyboard();
 
 	LPDIRECT3DDEVICE9 GetDirect3DDevice() { return this->d3ddv; }
