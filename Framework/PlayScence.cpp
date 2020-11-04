@@ -278,7 +278,7 @@ void CPlayScene::Unload()
 
 void CPlayScenceKeyHandler::OnKeyUp(int KeyCode)
 {
-	DebugOut(L"[INFO] KeyUp: %d\n", KeyCode);
+	//DebugOut(L"[INFO] KeyUp: %d\n", KeyCode);
 
 }
 
