@@ -73,8 +73,8 @@ LPSPRITES Sprites::GetInstance() {
 }
 
 LPSPRITE Sprites::GetSprite(string id) {
-	//return sprites[id]; 
-	return sprites.at(id); 
+	return sprites[id]; 
+	//return sprites.at(id); 
 }
 
 void Sprites::AddSprite(
