@@ -6,7 +6,7 @@
 #include "Game.h"
 
 #define WINDOW_CLASS_NAME L"Super Mario Bro 3"
-#define MAIN_WINDOW_TITLE L"SAMPLE 05 - SCENCE MANAGER"
+#define MAIN_WINDOW_TITLE L"Super Mario Bros 3"
 
 
 Game* game; 
