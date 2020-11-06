@@ -2,12 +2,15 @@
 #include <d3d9.h> 
 #include <d3dx9.h> 
 #include <string>  
+#include <unordered_map>
 
 #include "Utils.h" 
 #include "Constant.h"
 
 using namespace std; 
 
+class Sprite; 
+typedef Sprite* LPSPRITE; 
 class Sprite {
 	string id; //ID is the same in database 				
 	RECT rect;
@@ -45,7 +48,6 @@ public:
 
 }; 
 
-typedef Sprite* LPSPRITE; 
 
 // Sprite Management  
 class Sprites; 
