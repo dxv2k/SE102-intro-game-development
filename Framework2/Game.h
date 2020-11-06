@@ -3,12 +3,14 @@
 #include <d3dx9.h>
 #include <unordered_map>
 
-#include "Debug.h"
-#include "Singleton.h"
-#include "SingletonManager.h"
+#include "Utils.h"
+#include "Textures.h"
+
+//#include "Singleton.h"
+//#include "SingletonManager.h"
 
 
-#define BACKGROUND_COLOR D3DCOLOR_XRGB(255, 255, 200)
+#define BACKGROUND_COLOR D3DCOLOR_XRGB(255, 0, 255)
 #define SCREEN_WIDTH 640
 #define SCREEN_HEIGHT 480
 
@@ -37,12 +39,11 @@ private:
 	unordered_map<string, unordered_map<string, string>> gameSource;
 
 public: 
-	//Constructor & Destructor
 	static Game* GetInstance();
 	~Game();
 	void InitDirectX(HWND hWnd);
 
-	// Basic Game 
+	// Basic Game utility  
 	void GameInit(); 
 	void GameLoop(); 
 	void GameEnd(); 
@@ -57,18 +58,26 @@ public:
 	float GetFixedDeltaTime() { return 20; }
 	float GetDeltaTime() { return dt; }
 
-	// DirectX 
+	// DirectX utility 
 	LPDIRECT3DDEVICE9 GetDirect3DDevice() { return this->d3ddv; }
 	LPDIRECT3DSURFACE9 GetBackBuffer() { return backBuffer; }
 	LPD3DXSPRITE GetSpriteHandler() { return this->spriteHandler; }
 
+	// Draw utility
+	void Draw(D3DXVECTOR2 position, D3DXVECTOR2 pointCenter, 
+		LPDIRECT3DTEXTURE9 texture, RECT rect, 
+		D3DXCOLOR transcolor = BACKGROUND_COLOR);
 
-	void Draw(D3DXVECTOR2 position, LPDIRECT3DTEXTURE9 texture, RECT rect, int alpha);
+	void Draw(D3DXVECTOR2 position, LPDIRECT3DTEXTURE9 texture, 
+		RECT rect, int alpha);
+	
+	void DrawFlipX(D3DXVECTOR2 position, D3DXVECTOR2 centerCoordinate, 
+		LPDIRECT3DTEXTURE9 texture, RECT rect, 
+		D3DXCOLOR transparentColor = BACKGROUND_COLOR);
+
+	void DrawFlipY(D3DXVECTOR2 position, D3DXVECTOR2 centerCoordinate, 
+		LPDIRECT3DTEXTURE9 texture, RECT rect, 
+		D3DXCOLOR transparentColor = BACKGROUND_COLOR);
 
 };
-
-
-
-
-
 

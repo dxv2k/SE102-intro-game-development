@@ -1,8 +1,16 @@
 #include <Windows.h>
+#include "Utils.h"
 
-#include "Debug.h"
+HWND _hwnd = NULL;
 
-void DebugOut(const wchar_t *fmt, ...)
+void DebugOutTitle(const wchar_t* fmt, ...)
+{
+	wchar_t s[1024];
+	VA_PRINTS(s);
+	SetWindowText(_hwnd, s);
+}
+
+void DebugOut(const wchar_t* fmt, ...)
 {
 	va_list argp;
 	va_start(argp, fmt);
@@ -11,6 +19,7 @@ void DebugOut(const wchar_t *fmt, ...)
 	va_end(argp);
 	OutputDebugString(dbg_out);
 }
+
 
 vector<string> split(string line, string delimeter)
 {
@@ -31,10 +40,10 @@ char * string to wchar_t* string.
 */
 wstring ToWSTR(string st)
 {
-	const char *str = st.c_str();
+	const char* str = st.c_str();
 
 	size_t newsize = strlen(str) + 1;
-	wchar_t * wcstring = new wchar_t[newsize];
+	wchar_t* wcstring = new wchar_t[newsize];
 	size_t convertedChars = 0;
 	mbstowcs_s(&convertedChars, wcstring, newsize, str, _TRUNCATE);
 
@@ -49,14 +58,14 @@ wstring ToWSTR(string st)
 */
 LPCWSTR ToLPCWSTR(string st)
 {
-	const char *str = st.c_str();
+	const char* str = st.c_str();
 
 	size_t newsize = strlen(str) + 1;
-	wchar_t * wcstring = new wchar_t[newsize];
+	wchar_t* wcstring = new wchar_t[newsize];
 	size_t convertedChars = 0;
 	mbstowcs_s(&convertedChars, wcstring, newsize, str, _TRUNCATE);
 
-	wstring *w = new wstring(wcstring);
+	wstring* w = new wstring(wcstring);
 
 	// delete wcstring   // << can I ? 
 	return w->c_str();

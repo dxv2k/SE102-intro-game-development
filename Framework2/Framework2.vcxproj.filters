@@ -13,7 +13,28 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Debug">
+    <Filter Include="Framework">
+      <UniqueIdentifier>{377c1515-a006-47be-abb7-2f270cd9c5d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\SingletonManager">
+      <UniqueIdentifier>{e7cc5d7e-281f-445d-ab2d-74079ee518bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Game">
+      <UniqueIdentifier>{06dda3f7-0b8b-4e89-821b-c79fa8de2a1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\GameObject">
+      <UniqueIdentifier>{25fb8a82-373c-4e08-8fa0-a9bf39ee2d45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Textures">
+      <UniqueIdentifier>{d1fb4a01-7087-4a41-8471-b1930dee4def}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Sprites">
+      <UniqueIdentifier>{d3a85f2e-6f02-4907-8fd3-7605f630c056}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\TinyXML">
+      <UniqueIdentifier>{4121a744-a509-456e-82d9-ad13ec7298dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Ultis">
       <UniqueIdentifier>{28d400e5-563f-4e78-b09e-ccc9368d9054}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -21,34 +42,73 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SingletonManager.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="tinystr.cpp">
+      <Filter>Framework\TinyXML</Filter>
     </ClCompile>
-    <ClCompile Include="Singleton.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="tinyxml.cpp">
+      <Filter>Framework\TinyXML</Filter>
     </ClCompile>
-    <ClCompile Include="Debug.cpp">
-      <Filter>Debug</Filter>
+    <ClCompile Include="tinyxmlerror.cpp">
+      <Filter>Framework\TinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxmlparser.cpp">
+      <Filter>Framework\TinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="Textures.cpp">
+      <Filter>Framework\Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Framework\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprites.cpp">
+      <Filter>Framework\Sprites</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Framework\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Singleton.cpp">
+      <Filter>Framework\SingletonManager</Filter>
+    </ClCompile>
+    <ClCompile Include="SingletonManager.cpp">
+      <Filter>Framework\SingletonManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>Framework\Ultis</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="tinystr.h">
+      <Filter>Framework\TinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyxml.h">
+      <Filter>Framework\TinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="Textures.h">
+      <Filter>Framework\Textures</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
-      <Filter>Header Files</Filter>
+      <Filter>Framework\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprites.h">
+      <Filter>Framework\Sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Framework\Game</Filter>
     </ClInclude>
     <ClInclude Include="SingletonManager.h">
-      <Filter>Header Files</Filter>
+      <Filter>Framework\SingletonManager</Filter>
     </ClInclude>
     <ClInclude Include="Singleton.h">
+      <Filter>Framework\SingletonManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>Framework\Ultis</Filter>
+    </ClInclude>
+    <ClInclude Include="Constant.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Debug.h">
-      <Filter>Debug</Filter>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

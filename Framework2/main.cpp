@@ -2,7 +2,7 @@
 #include <d3d9.h>
 #include <d3dx9.h>
 
-#include "Debug.h"
+#include "Utils.h"
 #include "Game.h"
 
 #define WINDOW_CLASS_NAME L"Super Mario Bro 3"

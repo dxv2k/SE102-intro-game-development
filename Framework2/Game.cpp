@@ -13,11 +13,12 @@ Game* Game::GetInstance()
 
 Game::~Game()
 {
+	// Empty on purpose
 }
 
-
 void Game::GameInit() {
-    //DebugOut(L"[INFO] Load Resource Succesfully!  \n");
+    DebugOut(L"[INFO] Load Resource Succesfully!\n");
+	Textures::GetInstance()->LoadGameTextures(); 
 
 }
 
@@ -163,20 +164,86 @@ void Game::InitDirectX(HWND hWnd) {
 		return;
 	}
 	DebugOut(L"[INFO] Init DirectX Done \n");
-
 }
 
+void Game::Draw(D3DXVECTOR2 position, D3DXVECTOR2 pointCenter,
+	LPDIRECT3DTEXTURE9 texture, RECT rect,
+	D3DXCOLOR transcolor) {
 
-void Game::Draw(D3DXVECTOR2 position, LPDIRECT3DTEXTURE9 texture, RECT rect, int alpha)
+	D3DXVECTOR3 pCenter((int)pointCenter.x, (int)pointCenter.y, 0);
+	D3DXVECTOR3 pInt((int)(position.x), (int)(position.y), 0); 
+
+	spriteHandler->Draw(
+		texture, &rect, 
+		&pCenter, &pInt, 
+		BACKGROUND_COLOR);
+}
+
+void Game::Draw(D3DXVECTOR2 position, 
+	LPDIRECT3DTEXTURE9 texture, 
+	RECT rect, int alpha)
 {
+
 	D3DXVECTOR3 pInt((int)(position.x), (int)(position.y), 0);  
-	spriteHandler->Draw(texture, &rect, NULL, &pInt, D3DCOLOR_ARGB(alpha, 255, 255, 255));
+	spriteHandler->Draw(
+		texture, &rect, 
+		NULL, &pInt, 
+		D3DCOLOR_ARGB(alpha, 255, 255, 255));
+}
+
+void Game::DrawFlipX(D3DXVECTOR2 position, 
+	D3DXVECTOR2 centerCoordinate,
+	LPDIRECT3DTEXTURE9 texture, 
+	RECT rect,
+	D3DXCOLOR transcolor) {
+
+	D3DXVECTOR3 pCenter((int)centerCoordinate.x, (int)centerCoordinate.y, 0);
+	D3DXVECTOR2 pScale(-1, 1);
+	D3DXVECTOR3 pInt((int)(position.x), (int)(position.y), 0);
+	D3DXMATRIX beforeTransformation, afterTransformation;
+
+	spriteHandler->GetTransform(&beforeTransformation);
+
+	D3DXMatrixTransformation2D(
+		&beforeTransformation, &position, //pOut, pScalingCenter 
+		0.0f, &pScale, //ScalingRotation, pScaling 
+		NULL, 0.0f, //pRotationCenter, Rotation 
+		NULL // pTRanslation
+	);
+	spriteHandler->SetTransform(&afterTransformation);
+
+	spriteHandler->Draw(texture, &rect, 
+		&pCenter, &pInt, 
+		transcolor);
+	spriteHandler->SetTransform(&afterTransformation);
 }
 
 
+void Game::DrawFlipY(D3DXVECTOR2 position, 
+	D3DXVECTOR2 centerCoordinate,
+	LPDIRECT3DTEXTURE9 texture, 
+	RECT rect,
+	D3DXCOLOR transparentColor) {
 
+	D3DXVECTOR3 pCenter((int)centerCoordinate.x, (int)centerCoordinate.y, 0);
+	D3DXVECTOR2 pScale(1,-1); // Here to flip Y  
+	D3DXVECTOR3 pInt((int)(position.x), (int)(position.y), 0);
+	D3DXMATRIX beforeTransformation, afterTransformation;
 
+	spriteHandler->GetTransform(&beforeTransformation);
 
+	D3DXMatrixTransformation2D(
+		&beforeTransformation, &position, //pOut, pScalingCenter 
+		0.0f, &pScale, //ScalingRotation, pScaling 
+		NULL, 0.0f, //pRotationCenter, Rotation 
+		NULL // pTRanslation
+	);
+	spriteHandler->SetTransform(&afterTransformation);
 
+	spriteHandler->Draw(texture, &rect, 
+		&pCenter, &pInt, 
+		transparentColor);
 
+	spriteHandler->SetTransform(&afterTransformation);
+}
 
