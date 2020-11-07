@@ -3,7 +3,6 @@
 Game* Game::__instance = NULL; 
 
 float Game::dt = 0.0f; 
-float Game::timeScale = 1.0f; 
 
 Game* Game::GetInstance()
 {
@@ -19,7 +18,6 @@ Game::~Game()
 void Game::GameInit() {
     DebugOut(L"[INFO] Load Resource Succesfully!\n");
 	Textures::GetInstance()->LoadGameTextures(); 
-
 }
 
 void Game::GameLoop() {
@@ -166,11 +164,11 @@ void Game::InitDirectX(HWND hWnd) {
 	DebugOut(L"[INFO] Init DirectX Done \n");
 }
 
-void Game::Draw(D3DXVECTOR2 position, D3DXVECTOR2 pointCenter,
+void Game::Draw(D3DXVECTOR2 position, D3DXVECTOR2 anchorPoint,
 	LPDIRECT3DTEXTURE9 texture, RECT rect,
-	D3DXCOLOR transcolor) {
+	D3DXCOLOR transparentColor) {
 
-	D3DXVECTOR3 pCenter((int)pointCenter.x, (int)pointCenter.y, 0);
+	D3DXVECTOR3 pCenter((int)anchorPoint.x, (int)anchorPoint.y, 0);
 	D3DXVECTOR3 pInt((int)(position.x), (int)(position.y), 0); 
 
 	spriteHandler->Draw(
@@ -192,12 +190,12 @@ void Game::Draw(D3DXVECTOR2 position,
 }
 
 void Game::DrawFlipX(D3DXVECTOR2 position, 
-	D3DXVECTOR2 centerCoordinate,
+	D3DXVECTOR2 anchorPoint,
 	LPDIRECT3DTEXTURE9 texture, 
 	RECT rect,
-	D3DXCOLOR transcolor) {
+	D3DXCOLOR transparentColor) {
 
-	D3DXVECTOR3 pCenter((int)centerCoordinate.x, (int)centerCoordinate.y, 0);
+	D3DXVECTOR3 pCenter((int)anchorPoint.x, (int)anchorPoint.y, 0);
 	D3DXVECTOR2 pScale(-1, 1);
 	D3DXVECTOR3 pInt((int)(position.x), (int)(position.y), 0);
 	D3DXMATRIX beforeTransformation, afterTransformation;
@@ -214,18 +212,18 @@ void Game::DrawFlipX(D3DXVECTOR2 position,
 
 	spriteHandler->Draw(texture, &rect, 
 		&pCenter, &pInt, 
-		transcolor);
+		transparentColor);
 	spriteHandler->SetTransform(&afterTransformation);
 }
 
 
 void Game::DrawFlipY(D3DXVECTOR2 position, 
-	D3DXVECTOR2 centerCoordinate,
+	D3DXVECTOR2 anchorPoint,
 	LPDIRECT3DTEXTURE9 texture, 
 	RECT rect,
 	D3DXCOLOR transparentColor) {
 
-	D3DXVECTOR3 pCenter((int)centerCoordinate.x, (int)centerCoordinate.y, 0);
+	D3DXVECTOR3 pCenter((int)anchorPoint.x, (int)anchorPoint.y, 0);
 	D3DXVECTOR2 pScale(1,-1); // Here to flip Y  
 	D3DXVECTOR3 pInt((int)(position.x), (int)(position.y), 0);
 	D3DXMATRIX beforeTransformation, afterTransformation;

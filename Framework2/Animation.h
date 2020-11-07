@@ -7,59 +7,51 @@
 #include "AnimationFrame.h"
 #include "Sprites.h"
 #include "GameObject.h"
+#include "Transform.h"
 
 using namespace std; 
-
-struct Transform {
-
-	D3DXVECTOR2 position;
-	D3DXVECTOR2 scale;
-	float rotationAngle; 	
-
-	Transform CreateTransformation(D3DXVECTOR2 position, 
-		D3DXVECTOR2 scale, 
-		float rotationAngle) {
-
-		Transform result;
-		result.position = position;
-		result.scale = scale;
-		result.rotationAngle = rotationAngle;
-		return result;
-	}
-};
 
 class GameObject;
 typedef GameObject* LPGAMEOBJECT;
 
-class Animation;
-typedef Animation* LPANIMATION;
+class Animations;
+typedef Animations* LPANIMATION;
 
-class Animation {
+class Animations {
 	string id;
 	int currentFrame;
 	DWORD defaultFrameTime, lastFrameTime;
 	bool isLoop, isPlaying;
 
 	Transform transform;
-	D3DXVECTOR2 relativePosition;
+	D3DXVECTOR2 localPosition;
 
-	vector<LPANIMATIONFRAME> animationFrames;
+	vector<LPANIMATIONFRAME> animationSet;
 	GameObject* gameObject; 
 
 public: 
-	Animation(string id, DWORD defaultTime = 100);
-	Animation(const Animation& obj);
-	~Animation();
-	
-	// AddAnimation only support add single frame to create Animations
-	void AddAnimation(LPSPRITE sprite, 
-		D3DXVECTOR2 position, 
-		DWORD frameTime = 0);
+	Animations(string id, DWORD defaultTime = 100);
 
+	// This function was created with the intention 
+	// to made a copy of the AnimationSet to GameObject
+	// instead of using a pointer to AnimationSet. 
+	// Also, which mean it will run directly on RAM  
+	Animations(const Animations& obj);
+
+	~Animations();
+	
 	void Render(D3DXVECTOR2 position, int alpha = 255);
 
-	void SetPosition(D3DXVECTOR2 p) { this->transform.position = p; } // relative position
-	D3DXVECTOR2 GetPosition() { return transform.position; }
+	void SetPlay(bool isPause); // Need to work on 
+	bool GetPlayStatus() { return isPlaying; }
+
+	void AddAnimationFrame(LPSPRITE sprite, 
+		D3DXVECTOR2 position, // use for animation with fixed position  
+		DWORD frameTime = 0);
+	LPANIMATIONFRAME GetAnimationFrame(); 
+
+	void SetPosition(D3DXVECTOR2 p) { this->transform.SetPosition() = p; } // local position
+	D3DXVECTOR2 GetPosition() { return transform.; }
 
 	void SetScale(D3DXVECTOR2 newScale) { this->transform.scale = newScale; }
 	D3DXVECTOR2 GetScale() { return transform.scale; }
@@ -75,11 +67,5 @@ public:
 
 	void SetGameObject(LPGAMEOBJECT obj) { gameObject = obj; }
 	LPGAMEOBJECT GetGameObject() { return gameObject; }
-
-	void SetPlay(bool isPause);
-
-	LPANIMATIONFRAME GetAnimationFrame(); 
 };
-
-
 

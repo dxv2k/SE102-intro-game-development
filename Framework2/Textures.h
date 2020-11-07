@@ -12,9 +12,11 @@ private:
 	unordered_map<string, LPDIRECT3DTEXTURE9> list_textures; 
 
 public: 
-
 	static Textures* GetInstance();
 	~Textures(); 
+
+	// LoadGameTextures() is not a universal function  
+	// Use specially to load Super Mario Bros 3 texture resources 
 	void LoadGameTextures(); 
 
 	void AddTextures(string id, LPCWSTR filePath, 

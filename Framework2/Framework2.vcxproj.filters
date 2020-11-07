@@ -37,6 +37,9 @@
     <Filter Include="Framework\Ultis">
       <UniqueIdentifier>{28d400e5-563f-4e78-b09e-ccc9368d9054}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Framework\Animation">
+      <UniqueIdentifier>{d05213fa-2c5a-44fd-8451-f1183950d34a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -75,6 +78,12 @@
     <ClCompile Include="Utils.cpp">
       <Filter>Framework\Ultis</Filter>
     </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Framework\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationFrame.cpp">
+      <Filter>Framework\Animation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tinystr.h">
@@ -108,6 +117,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Framework\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationFrame.h">
+      <Filter>Framework\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="RectFloat.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -6,7 +6,8 @@
 Sprites* Sprites::__instance = NULL;
 
 Sprite::Sprite(string id,
-	int xPivot, //Use to flip  
+	int xAnchorPoint, //x coordinate in the Sprite, 
+					// Come in handy when to flip image 
 	RECT r,
 	LPDIRECT3DTEXTURE9 tex,
 	D3DXCOLOR transparentColor) {
@@ -19,10 +20,10 @@ Sprite::Sprite(string id,
 		
 	// Multiply by 3 (-1 to -3) because spritesize (height and width) 
 	// is reduced by half 
-	if (xPivot == -3)
-		this->centerCoordinate = D3DXVECTOR2(width * 0.5, height * 0.5);
+	if (xAnchorPoint == -3)
+		this->anchorPoint = D3DXVECTOR2(width * 0.5, height * 0.5);
 	else
-		this->centerCoordinate = D3DXVECTOR2(xPivot, height * 0.5);
+		this->anchorPoint = D3DXVECTOR2(xAnchorPoint, height * 0.5);
 
 	this->texture = tex; 
 	this->transparentColor = transparentColor; 
@@ -40,15 +41,15 @@ void Sprite::Draw(
 
 	Game* game = Game::GetInstance();
 	if (scale.x < 0)
-		game->DrawFlipX(position, centerCoordinate, 
+		game->DrawFlipX(position, anchorPoint, 
 			texture, rect, 
 			transparentColor);
 	else if (scale.y < 0)
-		game->DrawFlipY(position, centerCoordinate, 
+		game->DrawFlipY(position, anchorPoint, 
 			texture, rect, 
 			transparentColor);
 	else
-		game->Draw(position, centerCoordinate, 
+		game->Draw(position, anchorPoint, 
 			texture, rect, 
 			transparentColor);
 }

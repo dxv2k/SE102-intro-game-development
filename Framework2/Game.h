@@ -19,25 +19,23 @@
 
 using namespace std; 
 
+
 class Game {
 private: 
 	static Game* __instance;
 	static float dt; // delta time 
-	static float timeScale; 
 
 	HWND hWnd; // Window Handle
 
 
 	// DirectX and helper lib parameters 
-	//D3DXCOLOR transparentColor; 
+	D3DXCOLOR transparentColor; 
 
 	LPDIRECT3D9 d3d = NULL;						// Direct3D handle
 	LPDIRECT3DDEVICE9 d3ddv = NULL;				// Direct3D device object
 
 	LPDIRECT3DSURFACE9 backBuffer = NULL;		
 	LPD3DXSPRITE spriteHandler = NULL;			// Sprite helper library to help us draw 2D image on the screen 
-
-	unordered_map<string, unordered_map<string, string>> gameSource;
 
 public: 
 	static Game* GetInstance();
@@ -52,11 +50,6 @@ public:
 	void Update(); 
 	void Render(); 
 
-	// Time Scale, Delta Time 
-	static float GetTimeScale() { return timeScale; }
-	static void SetTimeScale(float time) { timeScale = time; }
-
-	float GetFixedDeltaTime() { return 20; }
 	float GetDeltaTime() { return dt; }
 
 	// DirectX utility 
@@ -65,20 +58,19 @@ public:
 	LPD3DXSPRITE GetSpriteHandler() { return this->spriteHandler; }
 
 	// Draw utility
-	void Draw(D3DXVECTOR2 position, D3DXVECTOR2 pointCenter, 
+	void Draw(D3DXVECTOR2 position, D3DXVECTOR2 anchorPoint, 
 		LPDIRECT3DTEXTURE9 texture, RECT rect, 
-		D3DXCOLOR transcolor = BACKGROUND_COLOR);
+		D3DXCOLOR transparentColor = BACKGROUND_COLOR);
 
 	void Draw(D3DXVECTOR2 position, LPDIRECT3DTEXTURE9 texture, 
 		RECT rect, int alpha);
 	
-	void DrawFlipX(D3DXVECTOR2 position, D3DXVECTOR2 centerCoordinate, 
+	void DrawFlipX(D3DXVECTOR2 position, D3DXVECTOR2 anchorPoint, 
 		LPDIRECT3DTEXTURE9 texture, RECT rect, 
 		D3DXCOLOR transparentColor = BACKGROUND_COLOR);
 
-	void DrawFlipY(D3DXVECTOR2 position, D3DXVECTOR2 centerCoordinate, 
+	void DrawFlipY(D3DXVECTOR2 position, D3DXVECTOR2 anchorPoint, 
 		LPDIRECT3DTEXTURE9 texture, RECT rect, 
 		D3DXCOLOR transparentColor = BACKGROUND_COLOR);
-
 };
 

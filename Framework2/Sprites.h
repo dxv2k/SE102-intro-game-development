@@ -20,7 +20,7 @@ class Sprite {
 	int height;
 
 	// DirectX 
-	D3DXVECTOR2 centerCoordinate;
+	D3DXVECTOR2 anchorPoint;
 	LPDIRECT3DTEXTURE9 texture;
 	D3DXCOLOR transparentColor;
 public:
@@ -48,7 +48,6 @@ public:
 
 }; 
 
-
 // Sprite Management  
 class Sprites; 
 typedef Sprites* LPSPRITES; 
@@ -71,8 +70,4 @@ public:
 	int LoadSprite(string textureName, string filePath); 
 
 }; 
-
-
-
-
 
