@@ -5,11 +5,3 @@ struct RectFloat {
 	float left, top, right, bottom; 
 };
 
-RECT r; 
-
-
-
-
-
-
-

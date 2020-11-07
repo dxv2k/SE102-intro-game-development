@@ -1,5 +1,4 @@
 #pragma once
-
 #include <string>
 #include <vector>
 #include <d3d9.h>
@@ -7,60 +6,79 @@
 
 #include "AnimationFrame.h"
 #include "Sprites.h"
-
 #include "GameObject.h"
+
+using namespace std; 
+
+struct Transform {
+
+	D3DXVECTOR2 position;
+	D3DXVECTOR2 scale;
+	float rotationAngle; 	
+
+	Transform CreateTransformation(D3DXVECTOR2 position, 
+		D3DXVECTOR2 scale, 
+		float rotationAngle) {
+
+		Transform result;
+		result.position = position;
+		result.scale = scale;
+		result.rotationAngle = rotationAngle;
+		return result;
+	}
+};
 
 class GameObject;
 typedef GameObject* LPGAMEOBJECT;
 
 class Animation;
 typedef Animation* LPANIMATION;
-class Animation; 
-
-using namespace std; 
 
 class Animation {
 	string id;
-	DWORD defaultFrameTime, lastFrameTime;
-
 	int currentFrame;
+	DWORD defaultFrameTime, lastFrameTime;
 	bool isLoop, isPlaying;
 
-	//Transform transform;
+	Transform transform;
 	D3DXVECTOR2 relativePosition;
-	vector<LPANIMATIONFRAME> animationFrames;
 
+	vector<LPANIMATIONFRAME> animationFrames;
 	GameObject* gameObject; 
+
 public: 
-	Animation(std::string id, DWORD defaultTime = 100);
+	Animation(string id, DWORD defaultTime = 100);
 	Animation(const Animation& obj);
-	void Add(LPSPRITE sprite, D3DXVECTOR2 pos, DWORD frameTime = 0);
+	~Animation();
+	
+	// AddAnimation only support add single frame to create Animations
+	void AddAnimation(LPSPRITE sprite, 
+		D3DXVECTOR2 position, 
+		DWORD frameTime = 0);
+
 	void Render(D3DXVECTOR2 position, int alpha = 255);
 
-	//void setposition(d3dxvector2 p) { this->transform.position = p; } // relative position
-	//void setscale(d3dxvector2 s) { this->transform.scale = s; }
-	//void setrotation(float r) { this->transform.rotationangle = r; }
-	//void setloopanimation(bool isloop) { this->isloop = isloop; }
-	//void setrelativeposition(d3dxvector2 rp) { this->relativeposition = rp; }
-	//void setplay(bool ispause);
-	//d3dxvector2 getposition() { return transform.position; }
-	//d3dxvector2 getscale() { return transform.scale; }
-	//float GetRotation() { return transform.rotationAngle; }
+	void SetPosition(D3DXVECTOR2 p) { this->transform.position = p; } // relative position
+	D3DXVECTOR2 GetPosition() { return transform.position; }
 
-	bool GetLoopAnimation() { return isLoop; }
+	void SetScale(D3DXVECTOR2 newScale) { this->transform.scale = newScale; }
+	D3DXVECTOR2 GetScale() { return transform.scale; }
 
-	LPANIMATIONFRAME GetAnimationFrame(); 
+	void SetRotation(float angle) { this->transform.rotationAngle = angle; }
+	float GetRotation() { return transform.rotationAngle; }
+
+	void SetAnimationLoop(bool isLoop) { this->isLoop = isLoop; }
+	bool GetAnimationLoop() { return isLoop; }
+
+	void SetRelativePosition(D3DXVECTOR2 pos) { this->relativePosition = pos; }
 	D3DXVECTOR2 GetRelativePosition() { return relativePosition; }
 
 	void SetGameObject(LPGAMEOBJECT obj) { gameObject = obj; }
 	LPGAMEOBJECT GetGameObject() { return gameObject; }
 
-	~Animation();
+	void SetPlay(bool isPause);
 
-
-
-
-
+	LPANIMATIONFRAME GetAnimationFrame(); 
 };
 
 
