@@ -9,9 +9,12 @@ class Transform {
 	Position, scale and rotation of an GameObject
 	It's used to store and manipulate the positino, scale and rotation of every GameObject
 	*/
-	D3DXVECTOR2 position;
+
+	D3DXVECTOR2 position; //World position 
+	//D3DXVECTOR2 relativePosition; 
+
 	D3DXVECTOR2 scale;
-	float rotationAngle;
+	float rotationAngle; // Receive with Degree but when Draw must convert into Radian 
 
 public:
 	Transform(
