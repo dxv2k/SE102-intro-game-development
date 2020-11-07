@@ -49,7 +49,7 @@ public:
 
 	bool GetLoopAnimation() { return isLoop; }
 
-	LPANIMATIONFRAME GetAnimationFrame(){ return animationFrames}
+	LPANIMATIONFRAME GetAnimationFrame(); 
 	D3DXVECTOR2 GetRelativePosition() { return relativePosition; }
 
 	void SetGameObject(LPGAMEOBJECT obj) { gameObject = obj; }
