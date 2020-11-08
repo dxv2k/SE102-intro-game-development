@@ -19,20 +19,8 @@
     <Filter Include="Framework\Game">
       <UniqueIdentifier>{06dda3f7-0b8b-4e89-821b-c79fa8de2a1c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\GameObject">
-      <UniqueIdentifier>{25fb8a82-373c-4e08-8fa0-a9bf39ee2d45}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Framework\Textures">
-      <UniqueIdentifier>{d1fb4a01-7087-4a41-8471-b1930dee4def}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Framework\Sprites">
-      <UniqueIdentifier>{d3a85f2e-6f02-4907-8fd3-7605f630c056}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Framework\TinyXML">
       <UniqueIdentifier>{4121a744-a509-456e-82d9-ad13ec7298dd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Framework\Animation">
-      <UniqueIdentifier>{d05213fa-2c5a-44fd-8451-f1183950d34a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Framework\CoreModule">
       <UniqueIdentifier>{29bec392-7a82-4837-a6d8-2cf68dffd846}</UniqueIdentifier>
@@ -52,6 +40,18 @@
     <Filter Include="Framework\CoreModule\Ultis">
       <UniqueIdentifier>{28d400e5-563f-4e78-b09e-ccc9368d9054}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Framework\CoreModule\Textures">
+      <UniqueIdentifier>{d1fb4a01-7087-4a41-8471-b1930dee4def}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\CoreModule\Sprites">
+      <UniqueIdentifier>{d3a85f2e-6f02-4907-8fd3-7605f630c056}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\CoreModule\GameObject">
+      <UniqueIdentifier>{25fb8a82-373c-4e08-8fa0-a9bf39ee2d45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\CoreModule\Animation">
+      <UniqueIdentifier>{d05213fa-2c5a-44fd-8451-f1183950d34a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -70,13 +70,13 @@
       <Filter>Framework\TinyXML</Filter>
     </ClCompile>
     <ClCompile Include="Textures.cpp">
-      <Filter>Framework\Textures</Filter>
+      <Filter>Framework\CoreModule\Textures</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
-      <Filter>Framework\GameObject</Filter>
+      <Filter>Framework\CoreModule\GameObject</Filter>
     </ClCompile>
     <ClCompile Include="Sprites.cpp">
-      <Filter>Framework\Sprites</Filter>
+      <Filter>Framework\CoreModule\Sprites</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Framework\Game</Filter>
@@ -91,10 +91,10 @@
       <Filter>Framework\CoreModule\Ultis</Filter>
     </ClCompile>
     <ClCompile Include="Animation.cpp">
-      <Filter>Framework\Animation</Filter>
+      <Filter>Framework\CoreModule\Animation</Filter>
     </ClCompile>
     <ClCompile Include="AnimationFrame.cpp">
-      <Filter>Framework\Animation</Filter>
+      <Filter>Framework\CoreModule\Animation</Filter>
     </ClCompile>
     <ClCompile Include="Transform.cpp">
       <Filter>Framework\CoreModule\Transform</Filter>
@@ -103,7 +103,7 @@
       <Filter>Framework\CoreModule\Time</Filter>
     </ClCompile>
     <ClCompile Include="AnimationManager.cpp">
-      <Filter>Framework\Animation</Filter>
+      <Filter>Framework\CoreModule\Animation</Filter>
     </ClCompile>
     <ClCompile Include="MonoBehaviour.cpp">
       <Filter>Framework\CoreModule\MonoBehaviour</Filter>
@@ -117,13 +117,13 @@
       <Filter>Framework\TinyXML</Filter>
     </ClInclude>
     <ClInclude Include="Textures.h">
-      <Filter>Framework\Textures</Filter>
+      <Filter>Framework\CoreModule\Textures</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
-      <Filter>Framework\GameObject</Filter>
+      <Filter>Framework\CoreModule\GameObject</Filter>
     </ClInclude>
     <ClInclude Include="Sprites.h">
-      <Filter>Framework\Sprites</Filter>
+      <Filter>Framework\CoreModule\Sprites</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Framework\Game</Filter>
@@ -144,10 +144,10 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Animation.h">
-      <Filter>Framework\Animation</Filter>
+      <Filter>Framework\CoreModule\Animation</Filter>
     </ClInclude>
     <ClInclude Include="AnimationFrame.h">
-      <Filter>Framework\Animation</Filter>
+      <Filter>Framework\CoreModule\Animation</Filter>
     </ClInclude>
     <ClInclude Include="Transform.h">
       <Filter>Framework\CoreModule\Transform</Filter>
@@ -159,7 +159,7 @@
       <Filter>Framework\CoreModule\Time</Filter>
     </ClInclude>
     <ClInclude Include="AnimationManager.h">
-      <Filter>Framework\Animation</Filter>
+      <Filter>Framework\CoreModule\Animation</Filter>
     </ClInclude>
     <ClInclude Include="MonoBehaviour.h">
       <Filter>Framework\CoreModule\MonoBehaviour</Filter>
