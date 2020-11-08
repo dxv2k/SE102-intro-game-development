@@ -12,14 +12,13 @@
 
 using namespace std; 
 
-class GameObject {
+class GameObject :public Transform{
 protected: 
 	int id; 
 	DWORD dt; 
 	bool enable; 
 		
 	string currentState, lastState; 
-
 
 	unordered_map<string, LPANIMATION> animations;
 
