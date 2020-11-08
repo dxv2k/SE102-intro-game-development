@@ -6,6 +6,7 @@
 
 #include "Utils.h"
 #include "Textures.h"
+#include "MonoBehaviour.h"
 
 //#include "Singleton.h"
 //#include "SingletonManager.h"
@@ -20,7 +21,7 @@
 using namespace std; 
 
 
-class Game {
+class Game : public MonoBehaviour{
 private: 
 	static Game* __instance;
 	static float dt; // delta time 

@@ -99,6 +99,15 @@
     <ClCompile Include="Transform.cpp">
       <Filter>Framework\CoreModule\Transform</Filter>
     </ClCompile>
+    <ClCompile Include="Time.cpp">
+      <Filter>Framework\CoreModule\Time</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationManager.cpp">
+      <Filter>Framework\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="MonoBehaviour.cpp">
+      <Filter>Framework\CoreModule\MonoBehaviour</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tinystr.h">
@@ -145,6 +154,15 @@
     </ClInclude>
     <ClInclude Include="RectFloat.h">
       <Filter>Framework\CoreModule</Filter>
+    </ClInclude>
+    <ClInclude Include="Time.h">
+      <Filter>Framework\CoreModule\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationManager.h">
+      <Filter>Framework\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="MonoBehaviour.h">
+      <Filter>Framework\CoreModule\MonoBehaviour</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

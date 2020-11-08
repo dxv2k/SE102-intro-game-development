@@ -9,6 +9,7 @@
 #include "Textures.h"
 #include "Utils.h"
 #include "Constant.h"
+#include "Transform.h"
 
 using namespace std; 
 
@@ -17,12 +18,14 @@ protected:
 	int id; 
 	DWORD dt; 
 	bool enable; 
-		
+
 	string currentState, lastState; 
 
 	unordered_map<string, LPANIMATION> animations;
 
 public: 
+	string tag; 
+
 	GameObject(); 
 	~GameObject(); 
 
@@ -37,13 +40,9 @@ public:
 	virtual void AddAnimation();
 	virtual void LoadAnimation(); 
 	
-	string GetState(); 
-	void SetState(string newState){}
+	//string GetState() { return state; }
+	//void SetState(string newState){}
+	bool CompareTag(GameObject& other); 
 
 };
-
-
-
-
-
 
