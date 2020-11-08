@@ -12,10 +12,12 @@ Animations::Animations(const Animations& obj)
 	this->currentFrame = -1;
 	vector<LPANIMATIONFRAME> newFrames(obj.animationSet);
 	this->animationSet = newFrames;
-	//this->transform = transform.CreateTransformation(obj.transform.position, 
-	//	obj.transform.scale, 
-	//	obj.transform.rotationAngle);
+
+	// Clone Animation Transform to Object Transform  
 	this->localPosition = obj.localPosition; 
+	this->position = obj.position; 
+	this->scale = obj.scale; 
+	this->rotationAngle = obj.rotationAngle; 
 
 	this->isLoop = obj.isLoop;
 	this->isPlaying = obj.isPlaying;
