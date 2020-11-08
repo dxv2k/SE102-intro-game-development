@@ -17,14 +17,14 @@ typedef GameObject* LPGAMEOBJECT;
 class Animations;
 typedef Animations* LPANIMATION;
 
-class Animations {
+class Animations : public Transform{
 	string id;
 	int currentFrame;
 	DWORD defaultFrameTime, lastFrameTime;
 	bool isLoop, isPlaying;
 
-	Transform transform;
-	D3DXVECTOR2 localPosition;
+	//Transform transform;
+	//D3DXVECTOR2 localPosition;
 
 	vector<LPANIMATIONFRAME> animationSet;
 	GameObject* gameObject; 
@@ -50,20 +50,21 @@ public:
 		DWORD frameTime = 0);
 	LPANIMATIONFRAME GetAnimationFrame(); 
 
-	void SetPosition(D3DXVECTOR2 p) { this->transform.SetPosition() = p; } // local position
-	D3DXVECTOR2 GetPosition() { return transform.; }
+	//void SetPosition(D3DXVECTOR2 p) { this->transform.SetPosition() = p; } // local position
+	//D3DXVECTOR2 GetPot() { return transform.; }
 
-	void SetScale(D3DXVECTOR2 newScale) { this->transform.scale = newScale; }
-	D3DXVECTOR2 GetScale() { return transform.scale; }
+	//void SetScale(D3DXVECTOR2 newScale) { this->transform.scale = newScale; }
+	//D3DXVECTOR2 GetScale() { return transform.scale; }
 
-	void SetRotation(float angle) { this->transform.rotationAngle = angle; }
-	float GetRotation() { return transform.rotationAngle; }
+	//void SetRotation(float angle) { this->transform.rotationAngle = angle; }
+	//float GetRotation() { return transform.rotationAngle; }
+
+	//void SetRelativePosition(D3DXVECTOR2 pos) { this->relativePosition = pos; }
+	//D3DXVECTOR2 GetRelativePosition() { return relativePosition; }
+
 
 	void SetAnimationLoop(bool isLoop) { this->isLoop = isLoop; }
 	bool GetAnimationLoop() { return isLoop; }
-
-	void SetRelativePosition(D3DXVECTOR2 pos) { this->relativePosition = pos; }
-	D3DXVECTOR2 GetRelativePosition() { return relativePosition; }
 
 	void SetGameObject(LPGAMEOBJECT obj) { gameObject = obj; }
 	LPGAMEOBJECT GetGameObject() { return gameObject; }

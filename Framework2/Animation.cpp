@@ -12,9 +12,11 @@ Animations::Animations(const Animations& obj)
 	this->currentFrame = -1;
 	vector<LPANIMATIONFRAME> newFrames(obj.animationSet);
 	this->animationSet = newFrames;
-	this->transform = transform.CreateTransformation(obj.transform.position, 
-		obj.transform.scale, 
-		obj.transform.rotationAngle);
+	//this->transform = transform.CreateTransformation(obj.transform.position, 
+	//	obj.transform.scale, 
+	//	obj.transform.rotationAngle);
+	this->localPosition = obj.localPosition; 
+
 	this->isLoop = obj.isLoop;
 	this->isPlaying = obj.isPlaying;
 }
@@ -52,9 +54,4 @@ LPANIMATIONFRAME Animations::GetAnimationFrame()
 void Animations::Render(D3DXVECTOR2 position, int alpha) {
 
 }
-
-
-
-
-
 
