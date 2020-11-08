@@ -6,18 +6,21 @@
 
 class Time {
 private: 
-	DWORD __cumalativeTime; 
+	static float deltaTime; // system time 
+	static float _time; // time in secon 
+	DWORD __accumalativeTime; 
+	bool isJustChanged; 
+
 public: 
-
-	static float dt; 
-
 	Time();
 	~Time();
 
-	void SetDeltaTime(float newDT) { this->dt = newDT; }
-	float GetDeltaTime() { return dt; }
+	//float GetDeltaTime() { return deltaTime; }
+	void Update(DWORD dt); 
 
-
+	void SetTime(int newTime); 
+	int GetTime(); 
+	bool CheckIsJustChanged(); 
 
 };
 
