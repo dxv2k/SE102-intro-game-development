@@ -25,6 +25,7 @@ public:
 	float rotationAngle; // Receive with Degree but when Draw must convert into Radian 
 
 	Transform(
+		// Did not test the default parameter yet
 		D3DXVECTOR2 position = D3DXVECTOR2(0.0f,0.0f),
 		D3DXVECTOR2 scale = D3DXVECTOR2(1.0f,1.0f),
 		float rotationAngle = 0.0f
