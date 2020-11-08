@@ -14,8 +14,8 @@ public:
 	Time();
 	~Time();
 
+	void SetDeltaTime(float newDT) { this->dt = newDT; }
 	float GetDeltaTime() { return dt; }
-
 
 
 
