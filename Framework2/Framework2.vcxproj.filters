@@ -16,9 +16,6 @@
     <Filter Include="Framework">
       <UniqueIdentifier>{377c1515-a006-47be-abb7-2f270cd9c5d6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\SingletonManager">
-      <UniqueIdentifier>{e7cc5d7e-281f-445d-ab2d-74079ee518bb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Framework\Game">
       <UniqueIdentifier>{06dda3f7-0b8b-4e89-821b-c79fa8de2a1c}</UniqueIdentifier>
     </Filter>
@@ -34,11 +31,26 @@
     <Filter Include="Framework\TinyXML">
       <UniqueIdentifier>{4121a744-a509-456e-82d9-ad13ec7298dd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\Ultis">
-      <UniqueIdentifier>{28d400e5-563f-4e78-b09e-ccc9368d9054}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Framework\Animation">
       <UniqueIdentifier>{d05213fa-2c5a-44fd-8451-f1183950d34a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\CoreModule">
+      <UniqueIdentifier>{29bec392-7a82-4837-a6d8-2cf68dffd846}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\CoreModule\Time">
+      <UniqueIdentifier>{be749f50-a436-4c00-b064-8880b0cf9061}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\CoreModule\MonoBehaviour">
+      <UniqueIdentifier>{2cc50c30-db0c-4441-8a72-627f3b662d1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\CoreModule\[X]SingletonManager">
+      <UniqueIdentifier>{e7cc5d7e-281f-445d-ab2d-74079ee518bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\CoreModule\Transform">
+      <UniqueIdentifier>{39b433d6-286d-4ca9-a6e1-c7b5f0f56ec4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\CoreModule\Ultis">
+      <UniqueIdentifier>{28d400e5-563f-4e78-b09e-ccc9368d9054}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -70,19 +82,22 @@
       <Filter>Framework\Game</Filter>
     </ClCompile>
     <ClCompile Include="Singleton.cpp">
-      <Filter>Framework\SingletonManager</Filter>
+      <Filter>Framework\CoreModule\[X]SingletonManager</Filter>
     </ClCompile>
     <ClCompile Include="SingletonManager.cpp">
-      <Filter>Framework\SingletonManager</Filter>
+      <Filter>Framework\CoreModule\[X]SingletonManager</Filter>
     </ClCompile>
     <ClCompile Include="Utils.cpp">
-      <Filter>Framework\Ultis</Filter>
+      <Filter>Framework\CoreModule\Ultis</Filter>
     </ClCompile>
     <ClCompile Include="Animation.cpp">
       <Filter>Framework\Animation</Filter>
     </ClCompile>
     <ClCompile Include="AnimationFrame.cpp">
       <Filter>Framework\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>Framework\CoreModule\Transform</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -105,13 +120,13 @@
       <Filter>Framework\Game</Filter>
     </ClInclude>
     <ClInclude Include="SingletonManager.h">
-      <Filter>Framework\SingletonManager</Filter>
+      <Filter>Framework\CoreModule\[X]SingletonManager</Filter>
     </ClInclude>
     <ClInclude Include="Singleton.h">
-      <Filter>Framework\SingletonManager</Filter>
+      <Filter>Framework\CoreModule\[X]SingletonManager</Filter>
     </ClInclude>
     <ClInclude Include="Utils.h">
-      <Filter>Framework\Ultis</Filter>
+      <Filter>Framework\CoreModule\Ultis</Filter>
     </ClInclude>
     <ClInclude Include="Constant.h">
       <Filter>Header Files</Filter>
@@ -125,8 +140,11 @@
     <ClInclude Include="AnimationFrame.h">
       <Filter>Framework\Animation</Filter>
     </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>Framework\CoreModule\Transform</Filter>
+    </ClInclude>
     <ClInclude Include="RectFloat.h">
-      <Filter>Header Files</Filter>
+      <Filter>Framework\CoreModule</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -25,8 +25,12 @@ class Animations : public Transform{
 
 	//Transform transform;
 	//D3DXVECTOR2 localPosition;
-
+	
+	/*
+	Each animation contain 	
+	*/
 	vector<LPANIMATIONFRAME> animationSet;
+
 	GameObject* gameObject; 
 
 public: 
@@ -44,7 +48,7 @@ public:
 
 	void SetPlay(bool isPause); // Need to work on 
 	bool GetPlayStatus() { return isPlaying; }
-
+	
 	void AddAnimationFrame(LPSPRITE sprite, 
 		D3DXVECTOR2 position, // use for animation with fixed position  
 		DWORD frameTime = 0);
