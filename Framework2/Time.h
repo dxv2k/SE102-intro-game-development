@@ -6,9 +6,9 @@
 
 class Time {
 private: 
-	DWORD deltaTime; // time between current frame and previous frame 
-	static float _time; // time in second since the game start 
+	static float _time; // time in second 
 	DWORD __accumalativeTime; 
+
 	bool isJustChanged; 
 
 public: 
