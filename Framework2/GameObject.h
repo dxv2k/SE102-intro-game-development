@@ -13,11 +13,10 @@
 
 using namespace std; 
 
-class GameObject :public Transform{
+class GameObject :public Transform, protected MonoBehaviour {
 protected: 
 	int id; 
 	DWORD dt; 
-	bool enable; 
 
 	string currentState, lastState; 
 
@@ -29,10 +28,14 @@ public:
 	GameObject(); 
 	~GameObject(); 
 
+	// Correct order of execution for the program
+	// TODO: Add physics and collider box in the future 
+	void Init(); 
+
 	//virtual void Update(DWORD dt, Camera* cam);
 	//virtual void Render(Camera* cam);
-	virtual void Update(DWORD dt);
-	virtual void Render();
+	//virtual void Update(DWORD dt);
+	//virtual void Render();
 
 	// Create a copy of animation and manage it with GameObject instead of pointer 
 	// and with Singleton 
