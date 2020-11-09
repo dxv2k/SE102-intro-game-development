@@ -8,20 +8,44 @@ protected:
 	bool isActiveandEnable; 
 	
 public: 
-	// Called when GameObject begins to exists
+	//Reference: https://docs.unity3d.com/Manual/ExecutionOrder.html
+	//---------------------ORDER-OF-EXECUTION------------------------
+	// THE FOLLOWING EXECUTION MUST BE CALLED CORRECTLY 
+
+	// Awake: Intialize data, call only once in a lifetime    
+	virtual void Awake(); 
+
+	// Start: Intialize the target variables
 	virtual void Start(); 
 
-	// Called every frame
+	// Update: called every frame, main update for the whole program
 	void Update(); 
 	
-	// Use for physics upate (Ex: RigidBody and Collision) 
-	// FixedUpdate based on 20 clic
+	// FixedUpddate: indepentdent from FPS, time interval is constant  
+	// FixedUpddate: Use for physics upate (Ex: RigidBody and Collision) 
 	void FixedUpdate();
 
-	// Use for camera update
+	// LateUpdate: Post processing update, called after update
+	// Should be use 
+	// Recommend to use for camera update
 	void LateUpdate();
 
-	//void OnCollisionEnter(); 
-	//void OnTriggerEnter();
+	////////////////////////////////////////////////////////////////
+
+	virtual void OnCollisionEnter(); 
+	
+	virtual void OnTriggerEnter();
+
+	// OnOverlapped: when an intersection of this and other 
+	virtual void OnOverlapped(); 
+
+	virtual void OnDestroy(); 
+
+	virtual void PreRender();
+
+	virtual void Render();
+
+	virtual void PostRender();
+
 };
 
