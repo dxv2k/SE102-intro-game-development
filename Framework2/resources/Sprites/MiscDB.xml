@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Textures>
+	<Textures id="tex-fire-ball">
+		<Sprite id="spr-fire-ball-0" left="0" top="1"  width="8" height="8" frameTime="100" />
+		<Sprite id="spr-fire-ball-1" left="11" top="0"  width="8" height="9" frameTime="100" />
+		<Sprite id="spr-fire-ball-2" left="22" top="1"  width="8" height="8" frameTime="100" />
+		<Sprite id="spr-fire-ball-3" left="33" top="0"  width="8" height="9" frameTime="100" />
+	</Textures>
+
+	<Textures id="tex-misc">
+		<Sprite id="spr-coin-0" left="294" top="101"  width="8" height="14"/>
+		<Sprite id="spr-coin-1" left="311" top="101"  width="1" height="14"/>
+		<Sprite id="spr-coin-2" left="321" top="101"  width="4" height="14"/>
+		<Sprite id="spr-coin-3" left="334" top="100"  width="14" height="16"/>
+		<Sprite id="spr-coin-4" left="357" top="100"  width="6" height="16"/>
+		<Sprite id="spr-coin-5" left="372" top="100"  width="10" height="16"/>
+		<Sprite id="spr-super-mushroom-0" left="156" top="121"  width="16" height="16"/>
+		<Sprite id="spr-1-up-mushroom-0" left="286" top="121"  width="16" height="16"/>
+		<Sprite id="spr-super-leaf-red-0" left="180" top="123"  width="16" height="14"/>
+		<Sprite id="spr-super-leaf-green-0" left="266" top="121"  width="15" height="16"/>
+		<Sprite id="spr-star-man-0" left="201" top="121"  width="16" height="16"/>
+		<Sprite id="spr-star-man-1" left="222" top="121"  width="16" height="16"/>
+		<Sprite id="spr-star-man-2" left="245" top="121"  width="16" height="16"/>
+		<Sprite id="spr-fire-flower-0" left="286" top="121"  width="16" height="16"/>
+		<Sprite id="spr-magic-wing-0" left="330" top="121"  width="14" height="16"/>
+		<Sprite id="spr-hammer-0" left="350" top="121"  width="16" height="16"/>
+		<Sprite id="spr-switch-block-blue-0" left="156" top="144"  width="16" height="16"/>
+		<Sprite id="spr-switch-block-blue-1" left="200" top="153"  width="16" height="7"/>
+		<Sprite id="spr-switch-block-green-0" left="178" top="144"  width="16" height="16"/>
+		<Sprite id="spr-switch-block-green-1" left="200" top="153"  width="16" height="7"/>
+		<Sprite id="spr-magic-ball-0" left="223" top="144"  width="16" height="16"/>
+		<Sprite id="spr-treasure-chest-0" left="247" top="144"  width="16" height="16"/>
+		<Sprite id="spr-frog-suit-0" left="268" top="144"  width="16" height="16"/>
+		<Sprite id="spr-tanooki-suit-0" left="288" top="144"  width="16" height="16"/>
+		<Sprite id="spr-jugem-cloud-0" left="309" top="144"  width="16" height="16"/>
+		<Sprite id="spr-magic-whistle-0" left="336" top="144"  width="6" height="16"/>
+		<Sprite id="spr-music-box-0" left="349" top="144"  width="16" height="16"/>
+		<Sprite id="spr-question-block-0" left="157" top="188"  width="16" height="16"/>
+		<Sprite id="spr-question-block-1" left="176" top="188"  width="16" height="16"/>
+		<Sprite id="spr-question-block-2" left="196" top="188"  width="16" height="16"/>
+		<Sprite id="spr-question-block-3" left="215" top="188"  width="16" height="16"/>
+		<Sprite id="spr-empty-block-0" left="235" top="188"  width="16" height="16"/>
+		<Sprite id="spr-wood-block-0" left="254" top="188"  width="16" height="16"/>
+		<Sprite id="spr-brick-0" left="274" top="188"  width="16" height="16"/>
+		<Sprite id="spr-brick-1" left="293" top="188"  width="16" height="16"/>
+		<Sprite id="spr-brick-2" left="312" top="188"  width="16" height="16"/>
+		<Sprite id="spr-brick-3" left="331" top="188"  width="16" height="16"/>
+		<Sprite id="spr-platform-0" left="352" top="167"  width="48" height="16"/>
+		<Sprite id="spr-music-note-block-0" left="352" top="188"  width="16" height="16"/>
+		<Sprite id="spr-music-note-block-1" left="371" top="188"  width="16" height="16"/>
+		<Sprite id="spr-music-note-block-2" left="390" top="188"  width="16" height="16"/>
+		<Sprite id="spr-red-music-note-block-0" left="409" top="188"  width="16" height="16"/>
+	</Textures>
+	
+</Textures>
