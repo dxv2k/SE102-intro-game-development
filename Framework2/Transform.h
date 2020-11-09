@@ -31,7 +31,11 @@ public:
 		float rotationAngle = 0.0f
 	);
 	~Transform();
-	
+
+	// Translate: translate the object by multiply current position (world position) 
+	// to distance. Useful for Camera 
+	void Translate(D3DXVECTOR2 newCoordinate);
+
 	void SetPosition(D3DXVECTOR2 newPos) { this->position = newPos; }
 	D3DXVECTOR2 GetPosition() { return position; }
 

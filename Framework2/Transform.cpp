@@ -13,3 +13,12 @@ Transform::Transform(
 Transform::~Transform(){ 
 	//Empty on purpose 
 }
+
+void Transform::Translate(D3DXVECTOR2 newCoordinate) {
+	// Translate method here is replace the current position with the new position  
+	position.x = newCoordinate.x; 
+	position.y = newCoordinate.y; 
+}
+
+
+
