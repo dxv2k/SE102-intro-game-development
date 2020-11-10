@@ -1,5 +1,6 @@
 #include "MonoBehaviour.h"
 /// 
+
 void MonoBehaviour::Awake() {
 
 } 
@@ -33,6 +34,10 @@ void MonoBehaviour::OnDestroy() {
 
 }
 
+void MonoBehaviour::Destroy() {
+
+}
+
 void MonoBehaviour::OnOverlapped() {
 
 }
@@ -45,7 +50,16 @@ void MonoBehaviour::Render() {
 
 }
 
-void MonoBehaviour::PostRender() {
+//void MonoBehaviour::PostRender() {
+//
+//}
+
+void MonoBehaviour::OnKeyUp() {
 
 }
+
+void MonoBehaviour::OnKeyDown() {
+
+}
+
 
