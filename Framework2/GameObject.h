@@ -24,7 +24,12 @@ protected:
 
 public:
 
-	GameObject();
+	GameObject(
+		string tag = "", 
+		string currentState = "", 
+		string lastState = "", 
+		unordered_map<string, LPANIMATION> animations = NULL, 
+	);
 	~GameObject();
 
 	// Correct order of execution for the program
