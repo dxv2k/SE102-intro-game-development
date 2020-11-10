@@ -18,3 +18,9 @@ void GameObject::Init() {
 }
 
 
+bool GameObject::CompareTag(string otherTag) {
+	return (tag == otherTag); 
+}
+
+
+
