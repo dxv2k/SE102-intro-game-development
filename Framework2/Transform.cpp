@@ -2,10 +2,12 @@
 
 Transform::Transform(
 	D3DXVECTOR2 position,
+	D3DXVECTOR2 localPosition,
 	D3DXVECTOR2 scale, 
 	float rotationAngle) {
 
 	this->position = position; 
+	this->localPosition = localPosition; 
 	this->scale = scale; 
 	this->rotationAngle = rotationAngle; 
 }
