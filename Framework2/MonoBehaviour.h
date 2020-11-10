@@ -9,7 +9,7 @@ protected:
 	
 public: 
 	//Reference: https://docs.unity3d.com/Manual/ExecutionOrder.html
-	//---------------------ORDER-OF-EXECUTION------------------------
+	//----------------------EXECUTION-ORDER--------------------------
 	// THE FOLLOWING EXECUTION MUST BE CALLED CORRECTLY 
 
 	// Awake: Intialize data, call only once in a lifetime    
@@ -23,7 +23,7 @@ public:
 	
 	// FixedUpddate: indepentdent from FPS, time interval is constant  
 	// FixedUpddate: Use for physics upate (Ex: RigidBody and Collision) 
-	void FixedUpdate();
+	virtual void FixedUpdate();
 
 	// LateUpdate: Post processing update, called after update
 	// Should be use 
