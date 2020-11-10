@@ -32,20 +32,28 @@ public:
 
 	////////////////////////////////////////////////////////////////
 
+	// This part below here is not fully complete
+	// OnCollisionEnter: Called when collision occured 
 	virtual void OnCollisionEnter(); 
-	
+
+	// OnTriggerEnter: same with CollisionEnter but use with RigidBody2D	
 	virtual void OnTriggerEnter();
 
 	// OnOverlapped: when an intersection of this and other 
 	virtual void OnOverlapped(); 
 
+	// OnDestroy: Called when destroy an object or scene end  
 	virtual void OnDestroy(); 
 
+	// PreRender: Intialized render information 
+	// Use for camera, called before camera starts render a scene 
 	virtual void PreRender();
 
+	// Render: 
 	virtual void Render();
 
-	virtual void PostRender();
+	//// PostRender: called after camera has finish render a scene 
+	//virtual void PostRender();
 
 };
 

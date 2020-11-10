@@ -45,7 +45,7 @@ void MonoBehaviour::Render() {
 
 }
 
-void MonoBehaviour::PostRender() {
-
-}
+//void MonoBehaviour::PostRender() {
+//
+//}
 
