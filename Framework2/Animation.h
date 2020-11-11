@@ -17,7 +17,8 @@ typedef GameObject* LPGAMEOBJECT;
 class Animations;
 typedef Animations* LPANIMATION;
 
-class Animations : public Transform{
+class Animations {
+	Transform transform; 
 	string id;
 	int currentFrame;
 	DWORD defaultFrameTime, lastFrameTime;

@@ -13,15 +13,15 @@
 
 using namespace std; 
 
-class GameObject : public Transform,
-				   protected MonoBehaviour {
+class GameObject : protected MonoBehaviour {
 protected:
+	Transform transform; 
 	string tag;
 	string currentState, lastState;
 
 	// Animation 
 	unordered_map<string, LPANIMATION> animations;
-
+	
 public:
 
 	GameObject();
@@ -34,7 +34,7 @@ public:
 	// Tag utility 
 	void SetTag(string inputTag) { this->tag = inputTag; }
 	string GetTag() { return this->tag; }
-	bool CompareTag(string otherTag); 
+	bool CompareTag(string otherTag);
 
 
 
@@ -51,4 +51,6 @@ public:
 	void SetState(string newState); 
 
 };
+
+
 

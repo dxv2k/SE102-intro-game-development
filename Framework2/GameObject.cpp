@@ -5,8 +5,7 @@
 GameObject::GameObject() {
 	this->tag = ""; 
 	this->currentState = ""; 
-
-
+	transform.Transform(); 
 
 
 }
