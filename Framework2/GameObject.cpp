@@ -3,6 +3,8 @@
 
 
 GameObject::GameObject() {
+	this->tag = ""; 
+	this->currentState = ""; 
 
 
 
@@ -26,5 +28,8 @@ bool GameObject::CompareTag(string otherTag) {
 	return (tag == otherTag); 
 }
 
-
+void GameObject::SetState(string newState) {
+	this->lastState = currentState; 
+	this->currentState = newState; 
+}
 

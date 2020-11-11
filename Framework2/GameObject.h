@@ -24,12 +24,7 @@ protected:
 
 public:
 
-	GameObject(
-		string tag = "", 
-		string currentState = "", 
-		string lastState = "", 
-		unordered_map<string, LPANIMATION> animations = NULL, 
-	);
+	GameObject();
 	~GameObject();
 
 	// Correct order of execution for the program
@@ -48,12 +43,12 @@ public:
 	// Create a copy of animation and manage it with GameObject instead of pointer 
 	// and with Singleton 
 	// With this way, it is much easier 
-	virtual void AddAnimation();
-	virtual void LoadAnimation(); 
+	void AddAnimation();
+	void LoadAnimation(); 
 	
-	//string GetState() { return state; }
-	//void SetState(string newState){}
-	bool CompareTag(GameObject& other); 
+	string GetCurrentState() { return currentState; }
+	string GetLastState() { return lastState; }
+	void SetState(string newState); 
 
 };
 
