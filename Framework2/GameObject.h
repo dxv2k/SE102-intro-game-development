@@ -23,8 +23,10 @@ protected:
 	unordered_map<string, LPANIMATION> animations;
 	
 public:
-
 	GameObject();
+	GameObject(D3DXVECTOR2 position, 
+				D3DXVECTOR2 scale,
+				float rotation);
 	~GameObject();
 
 	// Correct order of execution for the program
@@ -35,15 +37,13 @@ public:
 	void SetTag(string inputTag) { this->tag = inputTag; }
 	string GetTag() { return this->tag; }
 	bool CompareTag(string otherTag);
-
-
-
-
+	bool IsEmptyTag(); 
 
 	// Create a copy of animation and manage it with GameObject instead of pointer 
 	// and with Singleton 
 	// With this way, it is much easier 
-	void AddAnimation();
+	void AddAnimation(string name, 
+		string);
 	void LoadAnimation(); 
 	
 	string GetCurrentState() { return currentState; }
@@ -51,6 +51,5 @@ public:
 	void SetState(string newState); 
 
 };
-
 
 
