@@ -4,6 +4,7 @@
 
 #include "Utils.h"
 #include "Game.h"
+#include "GameObject.h"
 
 #define WINDOW_CLASS_NAME L"Super Mario Bro 3"
 #define MAIN_WINDOW_TITLE L"Super Mario Bros 3"
@@ -78,6 +79,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	//SetWindowPos(hWnd, 0, 0, 0, SCREEN_WIDTH*2, SCREEN_HEIGHT*2, SWP_NOMOVE | SWP_NOOWNERZORDER | SWP_NOZORDER);
 	game = Game::GetInstance(); 
+	GameObject.
 	game->InitDirectX(hWnd); 
 	game->GameLoop(); 
 	game->GameEnd(); 

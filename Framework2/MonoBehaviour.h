@@ -48,7 +48,7 @@ public:
 	// OnDestroy: Called when destroying an object or scene end  
 	virtual void OnDestroy(); 
 
-	// OnDestroy: Called when destroy an object or scene end  
+	// Destroy: Called when destroy an object or scene end  
 	virtual void Destroy(); 
 
 	// PreRender: Intialized render information 
