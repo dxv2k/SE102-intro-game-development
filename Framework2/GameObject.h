@@ -19,7 +19,8 @@ protected:
 	string tag;
 	string currentState, lastState;
 
-	// Animation 
+	// Each GameObject can have more than one animationSet. 
+	// Example how to store animationSets for GameObj: <state_name, animationSet>
 	unordered_map<string, LPANIMATION> animations;
 	
 public:
@@ -30,7 +31,7 @@ public:
 	~GameObject();
 
 	// Correct order of execution for the program
-	// TODO: Add physics and collider box in the future 
+	// TODO: Add physics and collider box in the future for Init  
 	void Init();
 
 	// Tag utility 
@@ -39,17 +40,16 @@ public:
 	bool CompareTag(string otherTag);
 	bool IsEmptyTag(); 
 
-	// Create a copy of animation and manage it with GameObject instead of pointer 
-	// and with Singleton 
-	// With this way, it is much easier 
-	void AddAnimation(string name, 
-		string);
-	void LoadAnimation(); 
-	
+	// Object state utility
 	string GetCurrentState() { return currentState; }
 	string GetLastState() { return lastState; }
 	void SetState(string newState); 
 
+	// Animation utility 
+	// Each GameObject will hold its own AnimationSet 
+	// instead of pointing to animation database to get animation
+	void AddAnimation(string name, LPANIMATION animationSet);
+	void LoadAnimation(); 
 };
 
 

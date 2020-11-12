@@ -45,3 +45,15 @@ void GameObject::SetState(string newState) {
 	this->currentState = newState; 
 }
 
+void GameObject::AddAnimation(string name, LPANIMATION animationSet) {
+
+}
+
+
+void GameObject::LoadAnimation() {
+
+}
+
+
+
+

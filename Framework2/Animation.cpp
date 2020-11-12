@@ -13,11 +13,11 @@ Animations::Animations(const Animations& obj)
 	vector<LPANIMATIONFRAME> newFrames(obj.animationSet);
 	this->animationSet = newFrames;
 
-	// Clone Animation Transform to Object Transform  
-	this->localPosition = obj.localPosition; 
-	this->position = obj.position; 
-	this->scale = obj.scale; 
-	this->rotationAngle = obj.rotationAngle; 
+	//// Clone Animation Transform to Object Transform  
+	//this->localPosition = obj.localPosition; 
+	//this->position = obj.position; 
+	//this->scale = obj.scale; 
+	//this->rotationAngle = obj.rotationAngle; 
 
 	this->isLoop = obj.isLoop;
 	this->isPlaying = obj.isPlaying;
