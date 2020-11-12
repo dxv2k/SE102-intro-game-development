@@ -55,5 +55,8 @@ LPANIMATIONFRAME Animations::GetAnimationFrame()
 
 void Animations::Render(D3DXVECTOR2 position, int alpha) {
 
+
+
+
 }
 

@@ -18,6 +18,7 @@ class Animations;
 typedef Animations* LPANIMATION;
 
 class Animations {
+protected: 
 	Transform transform; 
 	string id;
 	int currentFrame;
@@ -55,18 +56,17 @@ public:
 		DWORD frameTime = 0);
 	LPANIMATIONFRAME GetAnimationFrame(); 
 
-	//void SetPosition(D3DXVECTOR2 p) { this->transform.SetPosition() = p; } // local position
-	//D3DXVECTOR2 GetPot() { return transform.; }
+	void SetPosition(D3DXVECTOR2 newPos) { this->transform.position = newPos; } // local position
+	D3DXVECTOR2 GetPosition() { return this->transform.position; }
 
-	//void SetScale(D3DXVECTOR2 newScale) { this->transform.scale = newScale; }
-	//D3DXVECTOR2 GetScale() { return transform.scale; }
+	void SetScale(D3DXVECTOR2 newScale) { this->transform.scale = newScale; }
+	D3DXVECTOR2 GetScale() { return transform.scale; }
 
-	//void SetRotation(float angle) { this->transform.rotationAngle = angle; }
-	//float GetRotation() { return transform.rotationAngle; }
+	void SetRotation(float angle) { this->transform.rotationAngle = angle; }
+	float GetRotation() { return transform.rotationAngle; }
 
-	//void SetRelativePosition(D3DXVECTOR2 pos) { this->relativePosition = pos; }
-	//D3DXVECTOR2 GetRelativePosition() { return relativePosition; }
-
+	void SetLocalPosition(D3DXVECTOR2 pos) { this->transform.localPosition = pos; }
+	D3DXVECTOR2 GetLocalPositionn() { return this->transform.localPosition; }
 
 	void SetAnimationLoop(bool isLoop) { this->isLoop = isLoop; }
 	bool GetAnimationLoop() { return isLoop; }
