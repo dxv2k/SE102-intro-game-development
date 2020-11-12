@@ -27,8 +27,8 @@ GameObject::~GameObject() {
 
 void GameObject::Init() {
 	// TODO: Add physics and collider box in the future 
-	Awake(); 
-	Start(); 
+	this->Awake(); 
+	this->Start(); 
 	this->enabled = true; 
 }
 
