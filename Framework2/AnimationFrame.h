@@ -14,22 +14,16 @@ class AnimationFrame
 private:
 	LPSPRITE sprite;
 	DWORD time;
-
-	// Mostly use for speical animation in the game 
-	// Example: 
-	// -> collision with brick
-	// -> mario shooting fire ball 
-	D3DXVECTOR2 position; 
+	D3DXVECTOR2 localPosition; 
 
 public:
 	AnimationFrame(
 		LPSPRITE sprite, 
 		DWORD time, 
-		D3DXVECTOR2 position); 
+		D3DXVECTOR2 pos); 
 	~AnimationFrame(); 
 
 	LPSPRITE GetSprite() { return sprite; }
 	DWORD GetTime() { return time; }
-
 }; 
 
