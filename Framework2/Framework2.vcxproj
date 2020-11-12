@@ -150,6 +150,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MonoBehaviour.cpp" />
+    <ClCompile Include="RigidBody.cpp" />
     <ClCompile Include="Singleton.cpp" />
     <ClCompile Include="SingletonManager.cpp" />
     <ClCompile Include="Sprites.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="MonoBehaviour.h" />
     <ClInclude Include="RectFloat.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="RigidBody.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="SingletonManager.h" />
     <ClInclude Include="Sprites.h" />
