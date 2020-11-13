@@ -2,6 +2,7 @@
 
 Time::Time()
 {
+    this->__time = 0;
     this->__accumalativeTime = 0;
     SetTime(0);
 }
@@ -19,19 +20,19 @@ void Time::Update(DWORD dt)
     }
     else {
         __accumalativeTime  = (__accumalativeTime + dt) % 1000;
-        _time++;
+        __time++;
         isJustChanged = true; 
     }
 }
 
 void Time::SetTime(int t)
 {
-    _time = t;
+    __time = t;
 }
 
 int Time::GetTime()
 {
-    return _time;
+    return __time;
 }
 
 bool Time::CheckIsJustChanged()

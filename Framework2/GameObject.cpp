@@ -5,10 +5,11 @@
 // Because I already set Transform with default value in its constructor 
 GameObject::GameObject() {
 	this->tag = ""; 
+	this->name = ""; 
 	this->currentState = ""; 
 	//transform.position = D3DXVECTOR2(0.0f,0.0f); 
-	this->transform.localPosition = D3DXVECTOR2(0.0f,0.0f); 
-	this->transform.rotationAngle = 0.0f; 
+	//this->transform.localPosition = D3DXVECTOR2(0.0f,0.0f); 
+	//this->transform.rotationAngle = 0.0f; 
 }
 
 GameObject::GameObject(D3DXVECTOR2 position, 

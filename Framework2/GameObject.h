@@ -13,6 +13,9 @@
 
 using namespace std; 
 
+class Animation; 
+typedef Animation* LPANIMATION; 
+
 class GameObject : protected MonoBehaviour {
 protected:
 	Transform transform; 
@@ -22,7 +25,7 @@ protected:
 
 	// Each GameObject can have more than one animationSet. 
 	// Example how to store animationSets for GameObj: <state_name, animationSet>
-	unordered_map<string, LPANIMATION> animations;
+	std::unordered_map<string, LPANIMATION> objAnimation;
 	
 public:
 	GameObject();

@@ -79,7 +79,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	//SetWindowPos(hWnd, 0, 0, 0, SCREEN_WIDTH*2, SCREEN_HEIGHT*2, SWP_NOMOVE | SWP_NOOWNERZORDER | SWP_NOZORDER);
 	game = Game::GetInstance(); 
-	GameObject.
+	//GameObject.
 	game->InitDirectX(hWnd); 
 	game->GameLoop(); 
 	game->GameEnd(); 

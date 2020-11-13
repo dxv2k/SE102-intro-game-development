@@ -6,9 +6,9 @@
 
 class Time {
 private: 
-	static float _time; // time in second 
+	//static float _time; // time in second 
+	float __time; // time in second 
 	DWORD __accumalativeTime; 
-
 	bool isJustChanged; 
 
 public: 
