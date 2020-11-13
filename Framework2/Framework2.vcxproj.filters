@@ -58,7 +58,7 @@
     <Filter Include="Framework\CoreModule\RigidBody">
       <UniqueIdentifier>{f451c57c-aa79-4345-98fc-df76e69e0de8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\CollisionBox">
+    <Filter Include="Framework\CoreModule\CollisionBox">
       <UniqueIdentifier>{ddb76368-f4f1-4411-815a-bfe66088e570}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -121,7 +121,7 @@
       <Filter>Framework\CoreModule\RigidBody</Filter>
     </ClCompile>
     <ClCompile Include="CollisionBox.cpp">
-      <Filter>Framework\CollisionBox</Filter>
+      <Filter>Framework\CoreModule\CollisionBox</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -183,7 +183,7 @@
       <Filter>Framework\CoreModule\RigidBody</Filter>
     </ClInclude>
     <ClInclude Include="CollisionBox.h">
-      <Filter>Framework\CollisionBox</Filter>
+      <Filter>Framework\CoreModule\CollisionBox</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
