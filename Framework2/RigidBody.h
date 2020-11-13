@@ -3,7 +3,7 @@
 #include "Transform.h"
 #include "MonoBehaviour.h"
 
-class Rigidbody : protected MonoBehaviour
+class RigidBody : protected MonoBehaviour
 {
 protected:
 	D3DXVECTOR2 velocity;
@@ -12,10 +12,9 @@ protected:
 	float acceleration;
 
 public:
-	Rigidbody();
+	RigidBody();
+	~RigidBody();
 	
-	void Update(); 
-
 	void SetVelocity(D3DXVECTOR2* velocity);
 	D3DXVECTOR2 GetVelocity();
 
@@ -30,3 +29,5 @@ public:
 	void SetAcceleration(float acceleration);
 	float GetAcceleration();
 };
+ 
+typedef RigidBody* LPRIGIDBODY; 
