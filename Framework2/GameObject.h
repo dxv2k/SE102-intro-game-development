@@ -17,6 +17,7 @@ class GameObject : protected MonoBehaviour {
 protected:
 	Transform transform; 
 	string tag;
+	string name; 
 	string currentState, lastState;
 
 	// Each GameObject can have more than one animationSet. 
@@ -33,6 +34,10 @@ public:
 	// Correct order of execution for the program
 	// TODO: Add physics and collider box in the future for Init  
 	void Init();
+	
+	// Name utility 
+	void SetName(string newName) { this->name = newName; }
+	string GetName() { return this->name; }
 
 	// Tag utility 
 	void SetTag(string inputTag) { this->tag = inputTag; }
