@@ -8,8 +8,11 @@ protected:
 	bool enabled;
 	
 public: 
+
 	bool isEnabled() { return this->enabled; }
 	void setActive(bool active) { this->enabled = active; }
+
+	void setInstanceID(int newID) { this->id = newID; }
 	int GetInstanceID() { return this->id; }
 
 	//Reference: https://docs.unity3d.com/Manual/ExecutionOrder.html
