@@ -1,5 +1,4 @@
 #pragma once
-
 #include <vector>
 #include <d3dx9.h>
 #include <d3d9.h>
@@ -11,27 +10,50 @@
 #include "MonoBehaviour.h"
 #include "RectFloat.h"
 
-class CollisionBox : protected MonoBehaviour,
+class ColliderBox : protected MonoBehaviour,
 					public Transform {
 protected: 
 	D3DXVECTOR2 sizeBox; //height and width respectively 
-	//D3DXVECTOR2 center; // center of the Collision Box  by default based on sizeBox 
-	LPGAMEOBJECT gameObj; 
-	LPRIGIDBODY rigidBody; 
+	//D3DXVECTOR2 center; // center of the Collider Box  by default based on sizeBox 
 
+	// Collider just simply store which GameObject and RigidBody are using it 
+	LPGAMEOBJECT gameObj;	// the GameObject attached to the ColliderBox  
+	LPRIGIDBODY rigidBody; // the RigidBody attached to the ColliderBox 
+	// REMINDER: a GameObject can have multiple ColliderBox
 public: 
-	CollisionBox();
-	~CollisionBox();
+	ColliderBox();
+	~ColliderBox();
 
 	void SetSizeBox(D3DXVECTOR2 size) { this->sizeBox = size; }
 	D3DXVECTOR2 GetSizeBox() { return this->sizeBox; }
 
-	void attachRigidBody(LPRIGIDBODY& rb) { this->rigidBody = rb;  }
-	LPRIGIDBODY getRigidBody() { return this->rigidBody; }
+	void attachToRigidBody(LPRIGIDBODY& rb) { this->rigidBody = rb;  }
+	LPRIGIDBODY GetRigidBody() { return this->rigidBody; }
 
-	void attachGameObject(LPGAMEOBJECT& obj) { this->gameObj = obj; }
-	LPGAMEOBJECT getGameObject() { return this->gameObj; }
+	void attachToGameObject(LPGAMEOBJECT& obj) { this->gameObj = obj; }
+	LPGAMEOBJECT GetGameObject() { return this->gameObj; }
 
 };
 
-typedef CollisionBox* LPCOLLISIONBOX; 
+typedef ColliderBox* LPCOLLISIONBOX; 
+
+/// <summary>
+/// Use to handle Collision Event by passing Collider into it
+/// This is just intial thoughts
+/// </summary>
+class Collision : protected MonoBehaviour {
+protected: 
+
+public: 
+	Collision(); 
+	~Collision(); 
+
+	/*
+		TODO: 
+		-	Add SweptAABB
+		-	Filter Collision 
+		-	Calculate  Potential Collision 
+	*/
+
+};
+
