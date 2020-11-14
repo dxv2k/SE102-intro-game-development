@@ -10,6 +10,8 @@ GameObject::GameObject() {
 	//transform.position = D3DXVECTOR2(0.0f,0.0f); 
 	//this->transform.localPosition = D3DXVECTOR2(0.0f,0.0f); 
 	//this->transform.rotationAngle = 0.0f; 
+	colliderBox = NULL; 
+	rigidBody = NULL; 
 }
 
 GameObject::GameObject(D3DXVECTOR2 position, 
@@ -54,7 +56,4 @@ void GameObject::AddAnimation(string name, LPANIMATION animationSet) {
 void GameObject::LoadAnimation() {
 
 }
-
-
-
 

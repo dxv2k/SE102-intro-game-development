@@ -11,6 +11,8 @@
 #include "Constant.h"
 #include "Transform.h"
 
+#include "CollisionBox.h"
+
 using namespace std; 
 
 class Animation; 
@@ -22,6 +24,15 @@ protected:
 	string tag;
 	string name; 
 	string currentState, lastState;
+
+	/// <summary>
+	/// Add current state, every GameObject can only have 
+	/// 1 ColliderBox
+	/// Every GameObject 2 compulsory component
+	///	- RigidBody & ColliderBox   
+	/// </summary>
+	LPCOLLIDERBOX colliderBox; 
+	LPRIGIDBODY rigidBody; 
 
 	// Each GameObject can have more than one animationSet. 
 	// Example how to store animationSets for GameObj: <state_name, animationSet>
@@ -37,7 +48,20 @@ public:
 	// Correct order of execution for the program
 	// TODO: Add physics and collider box in the future for Init  
 	void Init();
-	
+
+	// RigidBody utility 
+	void SetRigidBody(LPRIGIDBODY &rb) { this->rigidBody = rb; }
+	LPRIGIDBODY GetRigidBody() { return this->rigidBody; }
+
+	// ColliderBox utility 
+	void SetColliderBox(LPCOLLIDERBOX &cb) { this->colliderBox = cb; }
+	LPCOLLIDERBOX GetColliderBox() { return this->colliderBox; }
+		
+	// TODO: Add a more specific parameter for RigidBody
+	void SetRigidBody(LPRIGIDBODY &rb) { this->rigidBody = rb; }
+	// TODO: Add a more specific parameter for ColliderBox
+	void SetColliderBox(LPCOLLIDERBOX &cb) { this->colliderBox = cb; }
+
 	// Name utility 
 	void SetName(string newName) { this->name = newName; }
 	string GetName() { return this->name; }
