@@ -34,15 +34,20 @@ public:
 	LPGAMEOBJECT GetGameObject() { return this->gameObj; }
 
 };
+typedef ColliderBox* LPCOLLIDERBOX; 
 
-typedef ColliderBox* LPCOLLISIONBOX; 
 
 /// <summary>
 /// Use to handle Collision Event by passing Collider into it
 /// This is just intial thoughts
 /// </summary>
+//TODO: Remember to split this to another files 
+//      for easier management
 class Collision : protected MonoBehaviour {
-protected: 
+private: 
+	float time;
+	ColliderBox* collider;
+	D3DXVECTOR2 collisionDirection;
 
 public: 
 	Collision(); 
@@ -54,6 +59,14 @@ public:
 		-	Filter Collision 
 		-	Calculate  Potential Collision 
 	*/
-
+	Collision(float time,
+		D3DXVECTOR2 direction,
+		ColliderBox* collider); 
+	
+	bool Comparator(const Collision &otherCollisionEvent)
+	{
+		return this->time < otherCollisionEvent.time; 
+	}
 };
+
 

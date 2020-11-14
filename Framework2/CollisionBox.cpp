@@ -12,3 +12,21 @@ ColliderBox::~ColliderBox() {
 }
 
 
+Collision::Collision() {
+	// Not sure about deafult constructor
+}
+
+Collision::Collision(
+	float time,  
+	D3DXVECTOR2 direction, 
+	ColliderBox* collider) {
+
+	this->time = time;
+	this->collisionDirection = direction;
+	this->collider = collider;
+}
+
+Collision::~Collision() {
+	// Empty on purpose 
+}
+
