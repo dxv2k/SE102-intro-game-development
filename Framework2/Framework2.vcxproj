@@ -148,6 +148,7 @@
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="AnimationFrame.cpp" />
     <ClCompile Include="AnimationManager.cpp" />
+    <ClCompile Include="Collision.cpp" />
     <ClCompile Include="CollisionBox.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="Animation.h" />
     <ClInclude Include="AnimationFrame.h" />
     <ClInclude Include="AnimationManager.h" />
+    <ClInclude Include="Collision.h" />
     <ClInclude Include="CollisionBox.h" />
     <ClInclude Include="Constant.h" />
     <ClInclude Include="Game.h" />

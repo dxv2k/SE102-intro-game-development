@@ -61,6 +61,9 @@
     <Filter Include="Framework\CoreModule\CollisionBox">
       <UniqueIdentifier>{ddb76368-f4f1-4411-815a-bfe66088e570}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Framework\CoreModule\CollisionEvent">
+      <UniqueIdentifier>{a90f6acf-b59e-4707-81fb-3c5dbc39903b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -123,6 +126,9 @@
     <ClCompile Include="CollisionBox.cpp">
       <Filter>Framework\CoreModule\CollisionBox</Filter>
     </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Framework\CoreModule\CollisionEvent</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tinystr.h">
@@ -184,6 +190,9 @@
     </ClInclude>
     <ClInclude Include="CollisionBox.h">
       <Filter>Framework\CoreModule\CollisionBox</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Framework\CoreModule\CollisionEvent</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
