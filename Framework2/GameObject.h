@@ -18,6 +18,9 @@ using namespace std;
 class Animation; 
 typedef Animation* LPANIMATION; 
 
+class ColliderBox; 
+typedef ColliderBox* LPCOLLIDERBOX;
+
 using namespace std; 
 class GameObject : protected MonoBehaviour {
 protected:
@@ -32,7 +35,7 @@ protected:
 	/// Every GameObject 2 compulsory component
 	///	- RigidBody & ColliderBox   
 	/// </summary>
-	//LPCOLLIDERBOX colliderBox; 
+	LPCOLLIDERBOX colliderBox; 
 	LPRIGIDBODY rigidBody; 
 
 	// Each GameObject can have more than one animationSet. 
