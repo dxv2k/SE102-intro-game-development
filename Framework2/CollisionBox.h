@@ -9,7 +9,7 @@
 #include "Transform.h"
 #include "RigidBody.h"
 #include "MonoBehaviour.h"
-
+#include "RectFloat.h"
 
 class CollisionBox : protected MonoBehaviour,
 					public Transform {
@@ -31,6 +31,7 @@ public:
 
 	void attachGameObject(LPGAMEOBJECT& obj) { this->gameObj = obj; }
 	LPGAMEOBJECT getGameObject() { return this->gameObj; }
+
 };
 
 typedef CollisionBox* LPCOLLISIONBOX; 
