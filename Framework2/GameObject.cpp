@@ -29,7 +29,7 @@ GameObject::~GameObject() {
 }
 
 void GameObject::Init() {
-	// TODO: Add physics and collider box in the future 
+	// TODO: Add init RigidBody and ColliderBox in the future 
 	this->Awake(); 
 	this->Start(); 
 	this->enabled = true; 

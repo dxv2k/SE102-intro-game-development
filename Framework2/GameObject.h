@@ -57,9 +57,9 @@ public:
 	void SetRigidBody(LPRIGIDBODY &rb) { this->rigidBody = rb; }
 	LPRIGIDBODY GetRigidBody() { return this->rigidBody; }
 
-	//// ColliderBox utility 
-	//void SetColliderBox(LPCOLLIDERBOX &cb) { this->colliderBox = cb; }
-	//LPCOLLIDERBOX GetColliderBox() { return this->colliderBox; }
+	// ColliderBox utility 
+	void SetColliderBox(LPCOLLIDERBOX &cb) { this->colliderBox = cb; }
+	LPCOLLIDERBOX GetColliderBox() { return this->colliderBox; }
 		
 	// TODO: Add a more specific parameter for RigidBody
 	//void SetRigidBody(LPRIGIDBODY &rb) { this->rigidBody = rb; }

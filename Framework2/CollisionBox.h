@@ -9,6 +9,7 @@
 #include "RigidBody.h"
 #include "MonoBehaviour.h"
 #include "RectFloat.h"
+#include "Collision.h"
 
 using namespace std; 
 
@@ -45,58 +46,20 @@ public:
 	void attachToGameObject(LPGAMEOBJECT obj) { this->gameObj = obj; }
 	LPGAMEOBJECT GetGameObject() { return this->gameObj; }
 
+	RectFloat GetBoundingBox(); 
+
+	//TODO:Add SweptAABB & Filter Collision & Calculate Potential Collision 
+	LPCOLLISIONEVENT SweptAABBEx(LPCOLLIDERBOX other);
+	void CalcPotentialCollisions(vector<LPCOLLIDERBOX>* coObjects, 
+		vector<LPCOLLISIONEVENT>& coEvents);
+	void FilterCollision(
+		vector<LPCOLLISIONEVENT>& coEvents,
+		vector<LPCOLLISIONEVENT>& coEventsResult,
+		float& min_tx,
+		float& min_ty,
+		float& nx,
+		float& ny);
+
+
 };
 typedef ColliderBox* LPCOLLIDERBOX; 
-
-
-
-
-////Testing purpose 
-//struct CollisionEvent
-//{
-//	LPCOLLIDERBOX objCollider;
-//	float t, nx, ny;
-//	float dx, dy;		// *RELATIVE* movement distance between this object and obj
-//
-//	CollisionEvent(float t, 
-//		float nx, 
-//		float ny, 
-//		float dx = 0, 
-//		float dy = 0, 
-//		LPCOLLIDERBOX obj = NULL)
-//	{
-//		this->t = t;
-//		this->nx = nx;
-//		this->ny = ny;
-//		this->dx = dx;
-//		this->dy = dy;
-//		this->objCollider = obj;
-//	}
-//	
-//	//static bool compare(const LPCOLLISIONEVENT& thisEvent, 
-//	//					LPCOLLISIONEVENT& otherEvent) {
-//	//	return (thisEvent->t < otherEvent->t) ? 1 : 0;
-//	//}
-//
-//};
-//typedef CollisionEvent* LPCOLLISIONEVENT
-
-//class Collision: protected MonoBehaviour {
-//public: 
-//	float t, nx, ny;
-//	float  dx, dy;
-//
-//	Collision(); 
-//	~Collision(); 
-//
-//	/*
-//		TODO: 
-//		-	Add SweptAABB
-//		-	Filter Collision 
-//		-	Calculate  Potential Collision 
-//	*/
-//	bool Comparator(const Collision &otherCollision) {
-//		return this->t < otherCollision.t; 
-//	}
-//};
-//typedef Collision* LPCOLLISIONEVENT

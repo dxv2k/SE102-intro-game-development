@@ -33,9 +33,6 @@ struct CollisionEvent
 };
 typedef CollisionEvent* LPCOLLISIONEVENT
 
-
-
-
 //using namespace std; 
 //
 //class Collision2D: protected MonoBehaviour {
@@ -47,7 +44,6 @@ typedef CollisionEvent* LPCOLLISIONEVENT
 //	~Collision2D(); 
 //
 //	/*
-//		TODO:Add SweptAABB & Filter Collision & Calculate Potential Collision 
 //	*/
 //	bool Comparator(const Collision2D &otherCollision) {
 //		return this->t < otherCollision.t; 
