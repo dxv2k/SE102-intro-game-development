@@ -31,6 +31,9 @@ protected:
 	// REMINDER: a GameObject can have multiple ColliderBox
 
 public: 
+
+	//LPGAMEOBJECT gameObj;	// the GameObject attached to the ColliderBox  
+
 	ColliderBox();
 	ColliderBox(D3DXVECTOR2 sb, 
 		LPGAMEOBJECT &obj, 
@@ -46,12 +49,16 @@ public:
 	void attachToGameObject(LPGAMEOBJECT obj) { this->gameObj = obj; }
 	LPGAMEOBJECT GetGameObject() { return this->gameObj; }
 
+	// Mostly use for SweptAABBX
 	RectFloat GetBoundingBox(); 
 
 	//TODO:Add SweptAABB & Filter Collision & Calculate Potential Collision 
-	LPCOLLISIONEVENT SweptAABBEx(LPCOLLIDERBOX other);
-	void CalcPotentialCollisions(vector<LPCOLLIDERBOX>* coObjects, 
+	LPCOLLISIONEVENT SweptAABBE(LPCOLLIDERBOX other);
+	
+	void CalcPotentialCollisions(
+		vector<LPCOLLIDERBOX>* coObjects, 
 		vector<LPCOLLISIONEVENT>& coEvents);
+
 	void FilterCollision(
 		vector<LPCOLLISIONEVENT>& coEvents,
 		vector<LPCOLLISIONEVENT>& coEventsResult,
@@ -59,7 +66,5 @@ public:
 		float& min_ty,
 		float& nx,
 		float& ny);
-
-
 };
 typedef ColliderBox* LPCOLLIDERBOX; 

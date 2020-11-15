@@ -21,52 +21,55 @@ ColliderBox::~ColliderBox() {
 }
 
 RectFloat ColliderBox::GetBoundingBox() {
-	if (gameObject->IsEnabled() == false || enabled == false)
-		return RectF{ 0, 0, 0, 0 };
+	//if (gameObj->isEnabled() == false 
+	//	|| enabled == false)
+	//	return RectFloat{0,0,0,0};
 
-	auto pos = GetWorldPosition();
-	RectF RectF;
-	RectF.left = pos.x - boxSize.x * 0.5f;
-	RectF.right = pos.x + boxSize.x * 0.5f;
-	RectF.top = pos.y - boxSize.y * 0.5f;
-	RectF.bottom = pos.y + boxSize.y * 0.5f;
+	if (gameObj.MonoBehaviour::isEnabled() == false)
+		return RectFloat{0,0,0,0};
 
-	return RectF;
+	//auto pos = GetWorldPosition();
+	//RectFloat rect;
+	//rect.left = pos.x - boxSize.x * 0.5f;
+	//rect.right = pos.x + boxSize.x * 0.5f;
+	//rect.top = pos.y - boxSize.y * 0.5f;
+	//rect.bottom = pos.y + boxSize.y * 0.5f;
+	//return rect;
 }
 
-LPCOLLISIONEVENT SweptAABBEx(LPCOLLIDERBOX other) {
-	float sl, st, sr, sb;		// static object bbox
-	float ml, mt, mr, mb;		// moving object bbox
-	float t, nx, ny;
-
-	auto otherBox = other->GetBoundingBox();
-	sl = otherBox.left;
-	st = otherBox.top;
-	sr = otherBox.right;
-	sb = otherBox.bottom;
-
-	// deal with moving object: m speed = original m speed - collide object speed
-	float svx, svy;
-	auto velocity = other->GetGameObject()->GetRigidbody()->GetVelocity();
-	svx = velocity.x;
-	svy = velocity.y;
-
-	float sdx = svx * Game::DeltaTime();
-	float sdy = svy * Game::DeltaTime();
-
-	float dx = this->dvx - sdx;
-	float dy = this->dvy - sdy;
-
-	Vector2 direction;
-
-	SweptAABB(
-		GetBoundingBox(),
-		dx, dy,
-		otherBox,
-		t, direction
-	);
-
-	CollisionEvent* e = new CollisionEvent(t, direction, other);
-	return e;
-}
+//LPCOLLISIONEVENT SweptAABBX(LPCOLLIDERBOX other) {
+//	float sl, st, sr, sb;		// static object bbox
+//	float ml, mt, mr, mb;		// moving object bbox
+//	float t, nx, ny;
+//
+//	auto otherBox = other->GetBoundingBox();
+//	sl = otherBox.left;
+//	st = otherBox.top;
+//	sr = otherBox.right;
+//	sb = otherBox.bottom;
+//
+//	// deal with moving object: m speed = original m speed - collide object speed
+//	float svx, svy;
+//	auto velocity = other->GetGameObject()->GetRigidbody()->GetVelocity();
+//	svx = velocity.x;
+//	svy = velocity.y;
+//
+//	float sdx = svx * Game::DeltaTime();
+//	float sdy = svy * Game::DeltaTime();
+//
+//	float dx = this->dvx - sdx;
+//	float dy = this->dvy - sdy;
+//
+//	D3DXVECTOR2 direction;
+//
+//	SweptAABB(
+//		GetBoundingBox(),
+//		dx, dy,
+//		otherBox,
+//		t, direction
+//	);
+//
+//	CollisionEvent* e = new CollisionEvent(t, direction, other);
+//	return e;
+//}
 
