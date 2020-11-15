@@ -9,7 +9,7 @@
 #include "RigidBody.h"
 #include "MonoBehaviour.h"
 #include "RectFloat.h"
-#include "Collision.h"
+#include "Collision.h" // This one caused error
 
 using namespace std; 
 

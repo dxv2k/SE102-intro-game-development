@@ -3,6 +3,9 @@
 #include "MonoBehaviour.h"
 #include "CollisionBox.h"
 
+class ColliderBox; 
+typedef ColliderBox* LPCOLLIDERBOX;
+
 //Testing purpose 
 struct CollisionEvent
 {
@@ -25,10 +28,14 @@ struct CollisionEvent
 		this->objCollider = obj;
 	}
 	
-	static bool compare(const LPCOLLISIONEVENT& thisEvent, 
+	bool compare(const LPCOLLISIONEVENT& thisEvent, 
 						LPCOLLISIONEVENT& otherEvent) {
 		return (thisEvent->t < otherEvent->t) ? 1 : 0;
 	}
+	/*static bool compare(const LPCOLLISIONEVENT& thisEvent, 
+						LPCOLLISIONEVENT& otherEvent) {
+		return (thisEvent->t < otherEvent->t) ? 1 : 0;
+	}*/
 
 };
 typedef CollisionEvent* LPCOLLISIONEVENT

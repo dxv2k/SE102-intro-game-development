@@ -25,8 +25,8 @@ RectFloat ColliderBox::GetBoundingBox() {
 	//	|| enabled == false)
 	//	return RectFloat{0,0,0,0};
 
-	if (gameObj.MonoBehaviour::isEnabled() == false)
-		return RectFloat{0,0,0,0};
+	//if (gameObj.MonoBehaviour::isEnabled() == false)
+	//	return RectFloat{0,0,0,0};
 
 	//auto pos = GetWorldPosition();
 	//RectFloat rect;
