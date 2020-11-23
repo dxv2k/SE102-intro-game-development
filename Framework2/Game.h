@@ -24,8 +24,7 @@ using namespace std;
 class Game : public MonoBehaviour {
 private: 
 	static Game* __instance;
-	static float dt; // delta time 
-
+	static DWORD deltaTime; // delta time 
 	HWND hWnd; // Window Handle
 
 
@@ -50,14 +49,14 @@ public:
 
 	// Core Game Update utility
 	void Update(); 
-	void FixedUpdate override(); 
+	void FixedUpdate(); // Used for Physics update 
 
 	// Core Game Render utility
 	void Render(); 
 
-
 	// Time, delta time utility
-	float GetDeltaTime() { return dt; }
+	DWORD GetDeltaTime() { return deltaTime; }
+	DWORD GetFixedDeltaTime() { return 20; }
 
 	// DirectX utility 
 	LPDIRECT3DDEVICE9 GetDirect3DDevice() { return this->d3ddv; }

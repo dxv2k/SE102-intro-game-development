@@ -2,7 +2,7 @@
 
 Game* Game::__instance = NULL; 
 
-float Game::dt = 0.0f; 
+DWORD Game::deltaTime = 0.0f; 
 
 Game* Game::GetInstance()
 {
@@ -43,7 +43,7 @@ void Game::GameLoop() {
 			prevTime = currentTime; 
 			currentTime = GetTickCount(); // now
 			delta += (currentTime - prevTime);
-			dt = delta;
+			deltaTime = delta;
 
 			if (delta >= tickPerFrame) 
 			{
@@ -87,6 +87,10 @@ void Game::Update() {
 	//LPScene activeScene = sceneManger->GetActiveScene();
 	//if (activeScene != NULL)
 	//	activeScene->Update(deltaTime);
+}
+
+void Game::FixedUpdate() {
+
 }
 
 void Game::Render() {

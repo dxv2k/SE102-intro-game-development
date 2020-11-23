@@ -3,11 +3,15 @@
 
 class MonoBehaviour: protected Time 
 {
-protected: 
-	int id; 
-	bool enabled;
+//protected: 
+	//int id; 
+	//bool enabled;
 	
 public: 
+
+	// TODO: Testing why can't override base method 
+	int id; 
+	bool enabled; 
 
 	bool isEnabled() { return this->enabled; }
 	void setActive(bool active) { this->enabled = active; }
