@@ -28,17 +28,17 @@ struct CollisionEvent
 		this->objCollider = obj;
 	}
 	
-	bool compare(const LPCOLLISIONEVENT& thisEvent, 
+	/*bool compare(const LPCOLLISIONEVENT& thisEvent, 
 						LPCOLLISIONEVENT& otherEvent) {
 		return (thisEvent->t < otherEvent->t) ? 1 : 0;
-	}
+	}*/
 	/*static bool compare(const LPCOLLISIONEVENT& thisEvent, 
 						LPCOLLISIONEVENT& otherEvent) {
 		return (thisEvent->t < otherEvent->t) ? 1 : 0;
 	}*/
 
 };
-typedef CollisionEvent* LPCOLLISIONEVENT
+typedef CollisionEvent* LPCOLLISIONEVENT;
 
 //using namespace std; 
 //

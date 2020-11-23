@@ -49,8 +49,9 @@ public:
 	void attachToGameObject(LPGAMEOBJECT obj) { this->gameObj = obj; }
 	LPGAMEOBJECT GetGameObject() { return this->gameObj; }
 
+	// TODO: Complete GetBoundingBox() 
 	// Mostly use for SweptAABBX
-	RectFloat GetBoundingBox(); 
+	//RectFloat GetBoundingBox(); 
 
 	//TODO:Add SweptAABB & Filter Collision & Calculate Potential Collision 
 	LPCOLLISIONEVENT SweptAABBE(LPCOLLIDERBOX other);

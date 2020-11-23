@@ -20,7 +20,7 @@ ColliderBox::~ColliderBox() {
 	// Empty on purpose 
 }
 
-RectFloat ColliderBox::GetBoundingBox() {
+//RectFloat ColliderBox::GetBoundingBox() {
 	//if (gameObj->isEnabled() == false 
 	//	|| enabled == false)
 	//	return RectFloat{0,0,0,0};
@@ -35,7 +35,7 @@ RectFloat ColliderBox::GetBoundingBox() {
 	//rect.top = pos.y - boxSize.y * 0.5f;
 	//rect.bottom = pos.y + boxSize.y * 0.5f;
 	//return rect;
-}
+//}
 
 //LPCOLLISIONEVENT SweptAABBX(LPCOLLIDERBOX other) {
 //	float sl, st, sr, sb;		// static object bbox
