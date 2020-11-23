@@ -21,7 +21,7 @@
 using namespace std; 
 
 
-class Game : public MonoBehaviour{
+class Game : public MonoBehaviour {
 private: 
 	static Game* __instance;
 	static float dt; // delta time 
@@ -48,9 +48,15 @@ public:
 	void GameLoop(); 
 	void GameEnd(); 
 
+	// Core Game Update utility
 	void Update(); 
+	void FixedUpdate override(); 
+
+	// Core Game Render utility
 	void Render(); 
 
+
+	// Time, delta time utility
 	float GetDeltaTime() { return dt; }
 
 	// DirectX utility 
