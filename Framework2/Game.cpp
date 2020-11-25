@@ -1,12 +1,13 @@
 #include "Game.h"
 
-Game* Game::__instance = NULL; 
+Game& Game::__instance = NULL; 
 
 DWORD Game::deltaTime = 0.0f; 
 
-Game* Game::GetInstance()
+Game& Game::GetInstance()
 {
-    if (__instance == NULL) __instance = new Game();
+    if (__instance == NULL) 
+		__instance = new Game();
     return __instance;
 }
 
