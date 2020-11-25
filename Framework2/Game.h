@@ -28,6 +28,7 @@ private:
 	//TODO: Add timeScale for slow-motion in Game.h
 
 	// DirectX and helper lib parameters 
+	// NOTICE: not sure why need this 
 	D3DXCOLOR transparentColor; 
 
 	LPDIRECT3D9 d3d = NULL;						// Direct3D handle
@@ -51,7 +52,7 @@ public:
 	void FixedUpdate(); // Used for Physics update 
 
 	// Core Game Render utility
-	// TODO: Currently, all render (pre,post) prefer not to use
+	// NOTICE: Currently, all render (pre,post) prefer not to use
 	void Render(); 
 
 	// Time, delta time utility

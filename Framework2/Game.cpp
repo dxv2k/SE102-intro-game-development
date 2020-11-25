@@ -1,10 +1,10 @@
 #include "Game.h"
 
-Game& Game::__instance = NULL; 
+Game* Game::__instance = NULL; 
 
 DWORD Game::deltaTime = 0.0f; 
 
-Game& Game::GetInstance()
+Game* Game::GetInstance()
 {
     if (__instance == NULL) 
 		__instance = new Game();
@@ -30,6 +30,7 @@ void Game::GameLoop() {
 	float tickPerFrame = 1000.0f / MAX_FRAME_RATE;
 
 	// Game Loop
+	//TODO: Need to rewrite delta time calculation and game loop
 	while (!done)
 	{
 
