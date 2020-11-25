@@ -8,15 +8,13 @@ class MonoBehaviour: protected Time
 	//bool enabled;
 	
 public: 
-
-	// TODO: Testing why can't override base method 
 	int id; 
 	bool enabled; 
 
 	bool isEnabled() { return this->enabled; }
-	void setActive(bool active) { this->enabled = active; }
+	void SetActive(bool active) { this->enabled = active; }
 
-	void setInstanceID(int newID) { this->id = newID; }
+	void SetInstanceID(int newID) { this->id = newID; }
 	int GetInstanceID() { return this->id; }
 
 	//Reference: https://docs.unity3d.com/Manual/ExecutionOrder.html

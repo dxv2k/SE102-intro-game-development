@@ -30,9 +30,8 @@ protected:
 	string currentState, lastState;
 
 	/// <summary>
-	/// Add current state of development, every GameObject 
-	/// can only have 1 ColliderBox
-	/// Every GameObject have 2 component RigidBody & ColliderBox   
+	/// NOTICE: Add current state of development, every GameObject can only have 1 ColliderBox
+	/// NOTICE: Every GameObject have 2 component RigidBody & ColliderBox   
 	/// </summary>
 	LPCOLLIDERBOX colliderBox; 
 	LPRIGIDBODY rigidBody; 

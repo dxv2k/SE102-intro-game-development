@@ -15,7 +15,6 @@
 #define BACKGROUND_COLOR D3DCOLOR_XRGB(255, 0, 255)
 #define SCREEN_WIDTH 640
 #define SCREEN_HEIGHT 480
-
 #define MAX_FRAME_RATE 120 
 
 using namespace std; 
@@ -28,9 +27,6 @@ private:
 	//TODO: Add timeScale for slow-motion in Game.h
 
 	// DirectX and helper lib parameters 
-	// NOTICE: not sure why need this 
-	D3DXCOLOR transparentColor; 
-
 	LPDIRECT3D9 d3d = NULL;						// Direct3D handle
 	LPDIRECT3DDEVICE9 d3ddv = NULL;				// Direct3D device object
 

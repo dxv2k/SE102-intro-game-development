@@ -12,6 +12,7 @@ private:
 	unordered_map<string, LPDIRECT3DTEXTURE9> list_textures; 
 
 public: 
+	//TODO: Complete textures manager
 	static Textures* GetInstance();
 	~Textures(); 
 
