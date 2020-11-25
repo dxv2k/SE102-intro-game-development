@@ -10,8 +10,8 @@ GameObject::GameObject() {
 	//transform.position = D3DXVECTOR2(0.0f,0.0f); 
 	//this->transform.localPosition = D3DXVECTOR2(0.0f,0.0f); 
 	//this->transform.rotationAngle = 0.0f; 
-	colliderBox = NULL; 
-	rigidBody = NULL; 
+	//colliderBox = NULL; // NOTICE: not sure should set collider to NULL 
+	rigidBody = NULL; // NOTICE: not sure should set rigidbody to NULL 
 }
 
 GameObject::GameObject(D3DXVECTOR2 position, 
@@ -30,9 +30,17 @@ GameObject::~GameObject() {
 
 void GameObject::Init() {
 	// TODO: Add init RigidBody and ColliderBox in the future 
+	this->rigidBody = new RigidBody(); 
+
+	//this->colliderBox = new vector<LPCOLLIDERBOX>(); 
+
+	//colliders = new vector<ColliderBox*>(); 
+	// ERROR: can't overload '='
+	colliders = new vector<ColliderBox*>(); 
+
+	this->enabled = true; 
 	this->Awake(); 
 	this->Start(); 
-	this->enabled = true; 
 }
 
 bool GameObject::IsEmptyTag() {

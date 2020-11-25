@@ -33,7 +33,7 @@ protected:
 public: 
 
 	//LPGAMEOBJECT gameObj;	// the GameObject attached to the ColliderBox  
-
+	// TODO: CollisionBox is NOT complete
 	ColliderBox();
 	ColliderBox(D3DXVECTOR2 sb, 
 		LPGAMEOBJECT &obj, 
