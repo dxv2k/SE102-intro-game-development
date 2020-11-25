@@ -20,7 +20,6 @@
 
 using namespace std; 
 
-
 class Game : public MonoBehaviour {
 private: 
 	static Game* __instance;
@@ -52,6 +51,7 @@ public:
 	void FixedUpdate(); // Used for Physics update 
 
 	// Core Game Render utility
+	// TODO: Currently, all render (pre,post) prefer not to use
 	void Render(); 
 
 	// Time, delta time utility
@@ -63,7 +63,7 @@ public:
 	LPDIRECT3DSURFACE9 GetBackBuffer() { return backBuffer; }
 	LPD3DXSPRITE GetSpriteHandler() { return this->spriteHandler; }
 
-	// Draw utility
+	// Draw textures utility
 	void Draw(D3DXVECTOR2 position, D3DXVECTOR2 anchorPoint, 
 		LPDIRECT3DTEXTURE9 texture, RECT rect, 
 		D3DXCOLOR transparentColor = BACKGROUND_COLOR);

@@ -64,6 +64,9 @@
     <Filter Include="Framework\CoreModule\CollisionEvent">
       <UniqueIdentifier>{a90f6acf-b59e-4707-81fb-3c5dbc39903b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Framework\GameObjecPool">
+      <UniqueIdentifier>{fe2170b7-6950-4c88-b6fb-bd00ede35b3e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -129,6 +132,9 @@
     <ClCompile Include="Collision.cpp">
       <Filter>Framework\CoreModule\CollisionEvent</Filter>
     </ClCompile>
+    <ClCompile Include="GameObjectPool.cpp">
+      <Filter>Framework\GameObjecPool</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tinystr.h">
@@ -193,6 +199,9 @@
     </ClInclude>
     <ClInclude Include="Collision.h">
       <Filter>Framework\CoreModule\CollisionEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectPool.h">
+      <Filter>Framework\GameObjecPool</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
