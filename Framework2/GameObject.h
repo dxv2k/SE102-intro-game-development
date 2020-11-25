@@ -32,7 +32,7 @@ protected:
 	/// <summary>
 	/// Add current state of development, every GameObject 
 	/// can only have 1 ColliderBox
-	/// Every GameObject 2 compulsory component
+	/// Every GameObject have 2 compulsory component
 	///	- RigidBody & ColliderBox   
 	/// </summary>
 	LPCOLLIDERBOX colliderBox; 

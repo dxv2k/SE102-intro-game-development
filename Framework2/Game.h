@@ -26,7 +26,7 @@ private:
 	static Game* __instance;
 	static DWORD deltaTime; // delta time 
 	HWND hWnd; // Window Handle
-
+	//TODO: Add timeScale for slow-motion in Game.h
 
 	// DirectX and helper lib parameters 
 	D3DXCOLOR transparentColor; 
