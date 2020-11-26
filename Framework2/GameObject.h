@@ -30,7 +30,7 @@ protected:
 	string currentState, lastState;
 
 	/// NOTICE: Every GameObject have 2 component RigidBody & ColliderBox   
-	vector<LPCOLLIDERBOX> *colliders; // NOTICE: what about multiple collider boxes? 
+	vector<LPCOLLIDERBOX> *colliders;	
 	LPRIGIDBODY rigidBody; 
 
 	// Each GameObject can have more than one animationSet. 
@@ -52,15 +52,9 @@ public:
 	void SetRigidBody(LPRIGIDBODY &rb) { this->rigidBody = rb; }
 	LPRIGIDBODY GetRigidBody() { return this->rigidBody; }
 
-	// NOTICE: already set to multiple collider boxes
-	// ColliderBox utility 
-	//void SetColliderBox(LPCOLLIDERBOX &cb) { this->colliderBox = cb; }
-	//LPCOLLIDERBOX GetColliderBox() { return this->colliderBox; }
 		
 	// TODO: Add a more specific parameter for RigidBody
 	//void SetRigidBody(LPRIGIDBODY &rb) { this->rigidBody = rb; }
-	// TODO: Add a more specific parameter for ColliderBox
-	//void SetColliderBox(LPCOLLIDERBOX &cb) { this->colliderBox = cb; }
 
 	// Name utility 
 	void SetName(string newName) { this->name = newName; }

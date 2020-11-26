@@ -29,15 +29,8 @@ GameObject::~GameObject() {
 }
 
 void GameObject::Init() {
-	// TODO: Add init RigidBody and ColliderBox in the future 
 	this->rigidBody = new RigidBody(); 
-
-	//this->colliderBox = new vector<LPCOLLIDERBOX>(); 
-
-	//colliders = new vector<ColliderBox*>(); 
-	// ERROR: can't overload '='
-	colliders = new vector<ColliderBox*>(); 
-
+	this->colliders = new vector<ColliderBox*>(); 
 	this->enabled = true; 
 	this->Awake(); 
 	this->Start(); 
