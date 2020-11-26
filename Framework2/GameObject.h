@@ -24,6 +24,7 @@ typedef ColliderBox* LPCOLLIDERBOX;
 using namespace std; 
 class GameObject : protected MonoBehaviour {
 protected:
+	// NOTICE: How to manage GameObj position in world 
 	Transform transform; 
 	string tag;
 	string name; 
@@ -40,21 +41,18 @@ protected:
 	
 public:
 	GameObject();
+	// NOTICE: not sure if need GameObj with specific parameter
 	GameObject(D3DXVECTOR2 position, 
 				D3DXVECTOR2 scale,
 				float rotation);
 	~GameObject();
 
-	// TODO: Add physics and collider box in the future for Init  
 	void Init();
 
 	// RigidBody utility 
+	// TODO: Add a more specific parameter for RigidBody
 	void SetRigidBody(LPRIGIDBODY &rb) { this->rigidBody = rb; }
 	LPRIGIDBODY GetRigidBody() { return this->rigidBody; }
-
-		
-	// TODO: Add a more specific parameter for RigidBody
-	//void SetRigidBody(LPRIGIDBODY &rb) { this->rigidBody = rb; }
 
 	// Name utility 
 	void SetName(string newName) { this->name = newName; }
@@ -71,7 +69,7 @@ public:
 	string GetLastState() { return lastState; }
 	void SetState(string newState); 
 
-	// TODO: complete Add animation  
+	// TODO: complete Add animation utility 
 	// Animation utility 
 	// Each GameObject will hold its own AnimationSet 
 	// instead of pointing to animation database to get animation

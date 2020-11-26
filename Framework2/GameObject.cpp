@@ -4,14 +4,19 @@
 // Not sure about this 
 // Because I already set Transform with default value in its constructor 
 GameObject::GameObject() {
+	DebugOut(L"GameObj base constructor"); 
 	this->tag = ""; 
 	this->name = ""; 
 	this->currentState = ""; 
-	//transform.position = D3DXVECTOR2(0.0f,0.0f); 
-	//this->transform.localPosition = D3DXVECTOR2(0.0f,0.0f); 
-	//this->transform.rotationAngle = 0.0f; 
-	//colliderBox = NULL; // NOTICE: not sure should set collider to NULL 
-	rigidBody = NULL; // NOTICE: not sure should set rigidbody to NULL 
+	this->transform.position = D3DXVECTOR2(0.0f, 0.0f); 
+	this->transform.rotationAngle = 0.0f; 
+
+	// Reference to MonoBehavior Execution Order
+	this->Awake(); 
+
+	this->Start(); 
+
+	this->enabled = true; 
 }
 
 GameObject::GameObject(D3DXVECTOR2 position, 
@@ -20,12 +25,19 @@ GameObject::GameObject(D3DXVECTOR2 position,
 	this->transform.position = position; 
 	this->transform.scale = scale; 
 	this->transform.rotationAngle = rotation; 
-	this->enabled = true;  
-	this->tag = ""; 
+
+	this->enabled = false; 
+
+	// Reference to MonoBehavior Execution Order
+	this->Awake(); 
+
+	this->Start(); 
+
+	this->enabled = true; 
 }
 
 GameObject::~GameObject() {
-	// Empty on purpose
+	// TODO: Complete desconstructor of GameObject 
 }
 
 void GameObject::Init() {
@@ -48,6 +60,7 @@ void GameObject::SetState(string newState) {
 	this->lastState = currentState; 
 	this->currentState = newState; 
 }
+
 
 void GameObject::AddAnimation(string name, LPANIMATION animationSet) {
 
