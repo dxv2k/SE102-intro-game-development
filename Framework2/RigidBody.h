@@ -4,6 +4,10 @@
 #include "MonoBehaviour.h"
 
 // TODO: Complete Rigidbody, missing Update() method
+
+// TODO: RigidBody2D Type IS NOT COMPLETE 
+// Ref: https://docs.unity3d.com/ScriptReference/RigidbodyType2D.html
+
 class RigidBody : protected MonoBehaviour
 {
 protected:

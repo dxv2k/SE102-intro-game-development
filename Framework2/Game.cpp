@@ -25,12 +25,10 @@ void Game::GameLoop() {
 	MSG msg;
 	bool done = false;
 
-	float prevTime, currentTime = GetTickCount();
-	float delta = 0;
+	DWORD frameStart = GetTickCount();
 	float tickPerFrame = 1000.0f / MAX_FRAME_RATE;
+	deltaTime = 0;
 
-	// Game Loop
-	//TODO: Need to rewrite delta time calculation and game loop
 	while (!done)
 	{
 
@@ -41,32 +39,17 @@ void Game::GameLoop() {
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
 		}
-		else {
-			prevTime = currentTime; 
-			currentTime = GetTickCount(); // now
-			delta += (currentTime - prevTime);
-			deltaTime = delta;
-
-			if (delta >= tickPerFrame) 
-			{
-				//// Process key
-				//auto keyboardManger = CKeyboardManager::GetInstance();
-				//keyboardManger->ProcessKeyboard();
-				//if (keyboardManger->CheckESCKey() == true)
-				//	continue;
-
-				// Call update
-				Update();
-				Render();
-
-				if (delta > tickPerFrame) delta = 0.0f;
-			}
-			else {
-				Sleep(tickPerFrame - delta);
-				delta = tickPerFrame;
-			}
+		auto now = GetTickCount(); 
+		deltaTime = (now - frameStart); 
+		if (deltaTime >= tickPerFrame) {
+			frameStart = now; 
+			// This function still not complete
+			// NOTICE: Add more Update and Render here 
+			Update(); 
+			Render(); 
 		}
-
+		else
+			Sleep(tickPerFrame - deltaTime); 
 	}
 }
 

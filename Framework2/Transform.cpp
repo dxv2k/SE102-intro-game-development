@@ -1,5 +1,14 @@
 #include "Transform.h"
 
+Transform::Transform() {
+
+	DebugOut(L"Base Transform Constructor"); 
+	this->position = D3DXVECTOR2(0.0f,0.0f); 
+	this->localPosition = D3DXVECTOR2(0.0f,0.0f); 
+	this->scale = D3DXVECTOR2(1.0f,1.0f); 
+	this->rotationAngle = 0.0f; 
+}
+
 Transform::Transform(
 	D3DXVECTOR2 position,
 	D3DXVECTOR2 localPosition,

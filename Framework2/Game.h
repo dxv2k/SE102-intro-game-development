@@ -7,6 +7,7 @@
 #include "Utils.h"
 #include "Textures.h"
 #include "MonoBehaviour.h"
+#include "GameObject.h"
 
 //#include "Singleton.h"
 //#include "SingletonManager.h"
@@ -53,7 +54,9 @@ public:
 
 	// Time, delta time utility
 	DWORD GetDeltaTime() { return deltaTime; }
-	DWORD GetFixedDeltaTime() { return 20; }
+	// QUESTION: how to use fixedDt with FixedUpdate
+	// Delta Time reference from Unity Engine  
+	DWORD GetFixedDeltaTime() { return 20; } // ~ 0.0s
 
 	// DirectX utility 
 	LPDIRECT3DDEVICE9 GetDirect3DDevice() { return this->d3ddv; }
