@@ -41,18 +41,20 @@ protected:
 	
 public:
 	GameObject();
-	// NOTICE: not sure if need GameObj with specific parameter
 	GameObject(D3DXVECTOR2 position, 
 				D3DXVECTOR2 scale,
 				float rotation);
 	~GameObject();
 
-	void Init();
+	virtual void Init();
 
 	// RigidBody utility 
 	// TODO: Add a more specific parameter for RigidBody
 	void SetRigidBody(LPRIGIDBODY &rb) { this->rigidBody = rb; }
 	LPRIGIDBODY GetRigidBody() { return this->rigidBody; }
+
+	// Transform utility 
+	Transform GetTransform() { return this->transform; }
 
 	// Name utility 
 	void SetName(string newName) { this->name = newName; }
@@ -67,12 +69,14 @@ public:
 	// Object state utility
 	string GetCurrentState() { return currentState; }
 	string GetLastState() { return lastState; }
+	// TOOD: Complete SetState() that involve animation  
+	// NOTICE: SetState also involve Animation
 	void SetState(string newState); 
 
-	// TODO: complete Add animation utility 
 	// Animation utility 
 	// Each GameObject will hold its own AnimationSet 
 	// instead of pointing to animation database to get animation
+	// TODO: complete Add animation utility 
 	void AddAnimation(string name, LPANIMATION animationSet);
 	void LoadAnimation(); 
 };

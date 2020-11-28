@@ -4,12 +4,15 @@
 // Not sure about this 
 // Because I already set Transform with default value in its constructor 
 GameObject::GameObject() {
-	DebugOut(L"GameObj base constructor"); 
+	DebugOut(L"Game Object base constructor"); 
 	this->tag = ""; 
 	this->name = ""; 
 	this->currentState = ""; 
-	this->transform.position = D3DXVECTOR2(0.0f, 0.0f); 
-	this->transform.rotationAngle = 0.0f; 
+	
+	// NOTICE: No need below because Transform class already done that
+	//this->transform.position = D3DXVECTOR2(0.0f, 0.0f); 
+	//this->transform.rotationAngle = 0.0f; 
+	//this->transform.scale = D3DXVECTOR2(0.0f, 0.0f); 
 
 	// Reference to MonoBehavior Execution Order
 	this->Awake(); 
@@ -22,6 +25,7 @@ GameObject::GameObject() {
 GameObject::GameObject(D3DXVECTOR2 position, 
 						D3DXVECTOR2 scale,
 						float rotation) {
+	DebugOut(L"Game Object with transform parameters constructor"); 
 	this->transform.position = position; 
 	this->transform.scale = scale; 
 	this->transform.rotationAngle = rotation; 
@@ -38,14 +42,27 @@ GameObject::GameObject(D3DXVECTOR2 position,
 
 GameObject::~GameObject() {
 	// TODO: Complete desconstructor of GameObject 
+	// Delete rigidbody and colliders 
+	// Override OnDestroy if necessary
+	if (rigidBody != NULL)
+		delete rigidBody; 
+	for (LPCOLLIDERBOX c : *colliders) {
+		delete c; 
+	}
+	delete colliders; 
+	OnDestroy(); 
 }
 
 void GameObject::Init() {
 	this->rigidBody = new RigidBody(); 
 	this->colliders = new vector<ColliderBox*>(); 
-	this->enabled = true; 
+
+	// Reference to MonoBehavior Execution Order
 	this->Awake(); 
+
 	this->Start(); 
+
+	this->enabled = true; 
 }
 
 bool GameObject::IsEmptyTag() {
